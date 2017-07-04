@@ -59,14 +59,14 @@ class Conectar{
     
     function conecta(){
         // $connect = new \MongoDB\Driver\Manager("mongodb://$this->userCon:$this->pwdCon@$this->servidor:27017/$this->baseCon");
-        $connect = new \MongoDB\Driver\Manager("mongodb://$this->servidor:27017/$this->baseCon");
+        $connect = new \MongoDB\Driver\Manager("mongodb://$this->servidor:27017");
         $query = new MongoDB\Driver\Query($this->con);
         $rows = $connect->executeQuery($this->baseCons, $query);
         return $rows;
     }
 
     function insere(){
-        $connect2 = new \MongoDB\Driver\Manager("mongodb://$this->servidor:27017/$this->baseCon");
+        $connect2 = new \MongoDB\Driver\Manager("mongodb://$this->servidor:27017");
         $bulk = new MongoDB\Driver\BulkWrite;
         $doc = $this->con;
         $bulk->insert($doc);
