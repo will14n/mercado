@@ -1,0 +1,7 @@
+[submodule "site"]
+	path = site
+	url = https://github.com/will14n/mercado
+
+[submodule "mercado"]
+	path = mercado
+	url = https://github.com/will14n/mercado
