@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<meta charset="utf-8">
+		  		
+		<title>Supermercado Anônimus</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css">
+		
+  		<script src="../js/jquery-3.2.1.js"></script>
+  		<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+	  	<style type="text/css">
+		  	.iconSize {
+				font-size: 50px;
+			}
+
+			fixed-top, .navbar-fixed-bottom {
+				padding: 10px 30px;
+			}
+
+			.navbar-nav {
+			  width: 100%;
+			}
+
+			.navbar-nav > li {
+			  width: 20% !important;
+			  text-align: center;
+			}
+			
+			section {
+			  text-align: center;
+			}
+
+			.logo {
+				max-height: 150px;
+				width: 70%;
+				position: fixed;
+				top: 0;
+				left: calc(50% - 36%);
+			}
+
+			.conteudoCentral {
+				margin-top: 250px;
+				padding-bottom: 50px;
+			}
+
+			.header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 150px;
+				background: white;
+				z-index: 1;
+			}
+	  	</style>
+	</head>
+	<body>
+	  	<header class="header">
+	  		<img src="../img/logo_novo_sucesso_8826.jpg" class="logo" />
+	  	</header>
+	  	<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-top: 150px;">
+	  		<div class="container-fluid">
+			    <div class="navbar-header">
+				    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				    </button>
+			    </div>
+			    <div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+					  	<li class="active">
+					  		<a href="./index.html">Home</a>
+					  	</li>
+					  	<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+							  	Categorias
+							  	<span class="caret">
+							  	</span>
+							</a>
+							<ul class="dropdown-menu">
+							  	<li>
+							  		<a href="./promocao.html"><h4>Promoções</h4></a>
+							  	</li>
+							  	<li>
+							  		<a href="./promocao.html"><h4>Atacado</h4></a>
+							  	</li>
+							  	<li>
+							  		<a href="./promocao.html"><h4>Varejo</h4></a>
+							  	</li>
+							</ul>
+					  	</li>
+					  	<li>
+					  		<a href="./oferta.html">Oferta do dia</a>
+					  	</li>
+					  	<li>
+					  		<a href="./filiais.html">Filiais</a>
+					  	</li>
+					  	<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							  	Área Restrita
+							  	<span class="glyphicon glyphicon-log-in"></span>
+							</a>
+							<section class="dropdown-menu">
+							  	<form id="formLogin" class="form container-fluid">
+									<section class="form-group">
+									  	<label for="usr">Login:</label>
+									  	<input type="text" class="form-control" id="usr">
+									</section>
+									<section class="form-group">
+									  	<label for="pwd">Senha:</label>
+									  	<input type="password" class="form-control" id="pwd">
+									</section>
+									<a href="./login.html">
+										<button type="button" id="btnLogin" class="btn btn-block">Login</button>
+									</a>
+							  	</form>
+							  	<section class="container-fluid">
+							  		<br>
+							  		<!--<a class="small" href="#">Forgot password?</a>-->
+							  	</section> 
+							</section>
+					  	</li>
+					</ul>
+				</div>
+			</div>
+	  	</nav>
+	  	<section class="container conteudoCentral">
+		  	<section class="row slideanim slide">
+				<section class="col-sm-4">
+				  	<span class="glyphicon glyphicon-phone logo-small iconSize"></span>
+				  	<h4>
+				  		Celular
+				  	</h4>
+				  	<p>
+				  		Lorem ipsum dolor sit amet..
+				  	</p>
+				</section>
+				<section class="col-sm-4">
+				  	<span>
+				  		<i class="glyphicon glyphicon-camera green iconSize"></i>
+				  	</span>
+				  	<h4>
+				  		Câmera
+				  	</h4>
+				  	<p>
+				  		Lorem ipsum dolor sit amet..
+				  	</p>
+				</section>
+				<section class="col-sm-4">
+				  	<span class="glyphicon glyphicon-lock logo-small iconSize"></span>
+				  	<h4>
+				  		Malas
+				  	</h4>
+				  	<p>
+				  		Lorem ipsum dolor sit amet..
+				  	</p>
+				</section>
+			</section>
+		  	<section class="row slideanim slide">
+				<section class="col-sm-4">
+			  		<span class="glyphicon glyphicon-sunglasses logo-small iconSize"></span>
+			  		<h4>Óculos</h4>
+			  		<p>Lorem ipsum dolor sit amet..</p>
+				</section>
+				<section class="col-sm-4">
+			  		<span class="glyphicon glyphicon-certificate logo-small iconSize"></span>
+			  		<h4>sectionersos</h4>
+			  		<p>Lorem ipsum dolor sit amet..</p>
+				</section>
+				<section class="col-sm-4">
+			  		<span class="glyphicon glyphicon-wrench logo-small iconSize"></span>
+			  		<h4>
+			  			Ferramentas
+			  		</h4>
+			  		<p>
+			  			Lorem ipsum dolor sit amet..
+			  		</p>
+				</section>
+		  	</section>
+		</section>
+	  	<footer>
+			<section class="navbar navbar-inverse navbar-fixed-bottom">
+		  		<section class="container">   
+					<section class="footer-bottom">
+			  			<section class="container">
+							<section class="row">
+				  				<section class="col-sm-8">
+									<p style="color: white;">
+										Desenvolvido por ninguém ™ Copyright © 2017 Arca Solutions, Inc. Todos os direitos reservados
+									</p>
+				  				</section>
+				  			<section class="col-sm-4 text-right">
+								<p style="color: white;">
+									Termos de Uso | Política de Privacidade
+								</p>
+				  			</section>
+							</section>   
+			  			</section>         
+					</section>
+
+				</section>
+			</section>
+	  	</footer>
+	</body>
+</html>

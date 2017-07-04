@@ -1,0 +1,68 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-top: 150px;">
+	<section class="container-fluid">
+	    <section class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+	    </section>
+	    <section class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+			  	<li class="{ATIVA_INDEX}">
+			  		<a href="../controller/index.php?page=index">Home</a>
+			  	</li>
+			  	<li class="{ATIVA_PROMOCAO_MENU}">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+					  	Categorias
+					  	<span class="caret">
+					  	</span>
+					</a>
+					<ul class="dropdown-menu">
+					  	<li class="{ATIVA_PROMOCAO}">
+					  		<a href="../controller/index.php?page=promocao"><h4>Promoções</h4></a>
+					  	</li>
+					  	<li class="{ATIVA_ATACADO}">
+					  		<a href="../controller/index.php?page=atacado"><h4>Atacado</h4></a>
+					  	</li>
+					  	<li class="{ATIVA_VAREJO}">
+					  		<a href="../controller/index.php?page=varejo"><h4>Varejo</h4></a>
+					  	</li>
+					</ul>
+			  	</li>
+			  	<li class="{ATIVA_OFERTA}">
+			  		<a href="../controller/index.php?page=oferta">Oferta do dia</a>
+			  	</li>
+			  	<li class="{ATIVA_FILIAIS}">
+			  		<a href="../controller/index.php?page=filiais">Filiais</a>
+			  	</li>
+			  	<li class="dropdown {ATIVA_LOGIN}">
+					<a href="{ACESSO}" class="dropdown-toggle" data-toggle="{DROPDOWN}">
+					  	Área Restrita
+					  	<span class="glyphicon glyphicon-log-in"></span>
+					</a>
+					<section class="dropdown-menu">
+					  	<form id="formLogin" class="form container-fluid" action="../controller/index.php?page=login" method="POST" >
+					  		<input type="hidden" name="autenticacao">
+							<section class="form-group">
+							  	<label for="usr">Login:</label>
+							  	<input type="text" class="form-control" id="usr" name="usr">
+							</section>
+							<section class="form-group">
+							  	<label for="pwd">Senha:</label>
+							  	<input type="password" class="form-control" id="pwd" name="pwd">
+							</section>
+							<center>
+								<input type="submit" class="btn btn-info" name="login" value="Login">
+								<input type="submit" class="btn btn-primary" name="cadastrar" value="Cadastrar">
+							</center>
+					  	</form>
+					  	<section class="container-fluid">
+					  		<br>
+					  	</section> 
+					</section>
+			  	</li>
+			</ul>
+		</section>
+	</section>
+</nav>

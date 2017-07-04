@@ -1,0 +1,104 @@
+<section class="container conteudoCentral">
+	<!-- BEGIN BLOCK_CADASTRO_FILIAL -->
+	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
+		<input type="hidden" name="cadastro" value="true">
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="email">Código da filial:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="filialCodigo" name="filialCodigo">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Nome da loja:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="filialNome" name="filialNome">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Endereço:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="filialEndereco" name="filialEndereco">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Observação:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="filialObservacao" name="filialObservacao">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-default" name="filial" value="Submit">Submit</button>
+			</div>
+		</div>
+	</form>
+	<!-- END BLOCK_CADASTRO_FILIAL -->
+	<!-- BEGIN BLOCK_CADASTRO_OFERTA -->
+	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
+		<input type="hidden" name="cadastro" value="true">
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="email">Caminho da imagem da oferta:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="ofertaCaminho" name="ofertaCaminho">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Descrição da oferta:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="ofertaDescricao" name="ofertaDescricao">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-default" name="oferta" value="Submit">Submit</button>
+			</div>
+		</div>
+	</form>
+	<!-- END BLOCK_CADASTRO_OFERTA -->
+	<!-- BEGIN BLOCK_CADASTRO_PRODUTO -->
+	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
+		<input type="hidden" name="cadastro" value="true">
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="email">Código do produto:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="promocaoCodigo" name="promocaoCodigo">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Descrição do produto:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="produtoDescricao" name="produtoDescricao">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Preço do produto:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="produtoPreco" name="produtoPreco">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Quantidade:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="produtoQuantidade" name="produtoQuantidade">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Observação:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="produtoObservação" name="produtoObservação">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Nome do icone:</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="produtoIcone" name="produtoIcone">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-default" name="produto" value="Submit">Submit</button>
+			</div>
+		</div>
+	</form>
+	<!-- END BLOCK_CADASTRO_PRODUTO -->
+</section>
