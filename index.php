@@ -9,8 +9,8 @@ error_reporting(E_ALL);
   $dbname = str_replace("/", "", $mongo_url["path"]);
 
   # connect
-  // $m = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
-  $m   = new Mongo(getenv("MONGODB_URI"));
+  $m = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
+  // $m   = new Mongo(getenv("MONGODB_URI"));
   $db  = $m->$dbname;
   $col = $db->access;
 
