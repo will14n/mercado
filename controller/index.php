@@ -53,7 +53,7 @@ if($_GET['page'] == 'filiais') {
 	$projecao = ['_id' => 0];
 
 	$filiais = new Conectar();
-	$filiais->setServidor('teste');
+	$filiais->setServidor('localhost');
 	$filiais->setUserCon('root');
 	$filiais->setPwdCon('root');
 	$filiais->setBaseCon('admin');
@@ -99,7 +99,7 @@ else if($_GET['page'] == 'login') {
 				];
 
 				$cadastrar = new Conectar();
-				$cadastrar->setServidor('teste');
+				$cadastrar->setServidor('localhost');
 				$cadastrar->setUserCon('root');
 				$cadastrar->setPwdCon('root');
 				$cadastrar->setBaseCon('admin');
@@ -118,7 +118,7 @@ else if($_GET['page'] == 'login') {
 				];
 
 				$cadastrar = new Conectar();
-				$cadastrar->setServidor('teste');
+				$cadastrar->setServidor('localhost');
 				$cadastrar->setUserCon('root');
 				$cadastrar->setPwdCon('root');
 				$cadastrar->setBaseCon('admin');
@@ -141,7 +141,7 @@ else if($_GET['page'] == 'login') {
 				];
 
 				$cadastrar = new Conectar();
-				$cadastrar->setServidor('teste');
+				$cadastrar->setServidor('localhost');
 				$cadastrar->setUserCon('root');
 				$cadastrar->setPwdCon('root');
 				$cadastrar->setBaseCon('admin');
@@ -169,7 +169,7 @@ else if($_GET['page'] == 'login') {
 				$projecao = ['_id' => 0];
 
 				$teste = new Conectar();
-				$teste->setServidor('teste');
+				$teste->setServidor('localhost');
 				$teste->setUserCon('root');
 				$teste->setPwdCon('root');
 				$teste->setBaseCon('admin');
@@ -200,7 +200,7 @@ else if($_GET['page'] == 'login') {
 				];
 
 				$cadastrar = new Conectar();
-				$cadastrar->setServidor('teste');
+				$cadastrar->setServidor('localhost');
 				$cadastrar->setUserCon('root');
 				$cadastrar->setPwdCon('root');
 				$cadastrar->setBaseCon('admin');
@@ -219,7 +219,7 @@ else if($_GET['page'] == 'oferta') {
 	$projecao = ['_id' => 0];
 
 	$oferta = new Conectar();
-	$oferta->setServidor('teste');
+	$oferta->setServidor('localhost');
 	$oferta->setUserCon('root');
 	$oferta->setPwdCon('root');
 	$oferta->setBaseCon('admin');
@@ -240,7 +240,7 @@ else if($_GET['page'] == 'promocao') {
 	$projecao = ['_id' => 0];
 
 	$promocao = new Conectar();
-	$promocao->setServidor('teste');
+	$promocao->setServidor('localhost');
 	$promocao->setUserCon('root');
 	$promocao->setPwdCon('root');
 	$promocao->setBaseCon('admin');
@@ -265,7 +265,7 @@ else if($_GET['page'] == 'atacado') {
 	$projecao = ['_id' => 0];
 
 	$atacado = new Conectar();
-	$atacado->setServidor('teste');
+	$atacado->setServidor('localhost');
 	$atacado->setUserCon('root');
 	$atacado->setPwdCon('root');
 	$atacado->setBaseCon('admin');
@@ -290,7 +290,7 @@ else if($_GET['page'] == 'varejo') {
 	$projecao = ['_id' => 0];
 
 	$varejo = new Conectar();
-	$varejo->setServidor('teste');
+	$varejo->setServidor('localhost');
 	$varejo->setUserCon('root');
 	$varejo->setPwdCon('root');
 	$varejo->setBaseCon('admin');
@@ -347,7 +347,7 @@ else{
 	$projecao = ['_id' => 0];
 
 	$destaque = new Conectar();
-	$destaque->setServidor('teste');
+	$destaque->setServidor('localhost');
 	$destaque->setUserCon('root');
 	$destaque->setPwdCon('root');
 	$destaque->setBaseCon('admin');

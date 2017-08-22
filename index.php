@@ -1,2 +1,2 @@
 <?php
-header("location: ./controller/index.php");
+// header("location: ./controller/index.php");
