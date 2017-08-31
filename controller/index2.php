@@ -6,9 +6,6 @@ include_once '../classes/conectaHeroku.php';
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
 
-require_once '../lib/mongo-php-adapter-master/lib/Alcaeus/MongoDbAdapter/Helper/AbstractCursor.php';
-
-
 $tpl = new Template("../pages/dados.html");
 $tpl->addFile("DADOS", "../pages/cadastros.html");
 $tpl->block("BLOCK_CADASTRO_CLIENTE");
