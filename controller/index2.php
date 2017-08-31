@@ -1,7 +1,7 @@
 <?php
 session_start();
-// ini_set('display_errors',1);
-// error_reporting(E_ALL);
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 include_once '../classes/conecta.php';
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
