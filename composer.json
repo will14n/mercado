@@ -6,7 +6,6 @@
     "php": "^7.0",
     "ext-mongo": "*",
     "alcaeus/mongo-php-adapter": "dev-master",
-    "alcaeus/mongo-php-adapter": "dev-composer-replace",
     "doctrine/mongodb": "dev-master"
   }
 }
