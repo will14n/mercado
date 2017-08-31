@@ -67,7 +67,7 @@ class Conectar{
     }
 
     function insere(){
-        $connect = new MongoClient();
+        $m = new MongoClient();
     	$collection = $m->selectCollection('mercado', 'filiais');
 
 	var_dump($collection->count());
