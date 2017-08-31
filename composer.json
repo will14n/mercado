@@ -1,6 +1,6 @@
 {
   "require": {
     "php": "^7.0",
-    "alcaeus/mongo-php-adapter": "^1.0.0@beta"
+    "alcaeus/mongo-php-adapter": "^1.1"
   }
 }
