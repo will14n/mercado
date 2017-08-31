@@ -8,13 +8,6 @@ use raelgc\view\Template;
 
 $tpl = new Template("../pages/nav.html");
 
-if($_SESSION['autentica'] == "true") {
-	$tpl->ACESSO = "../controller/index.php?page=login";
-}
-else {
-	$tpl->ACESSO = "#";
-	$tpl->DROPDOWN = "dropdown";	
-}
 $tpl = new Template("../pages/dados.html");
 $tpl->addFile("DADOS", "../pages/cadastros.html");
 $tpl->block("BLOCK_CADASTRO_CLIENTE");
