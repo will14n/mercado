@@ -68,6 +68,7 @@ class Conectar{
 
     function insere(){
         $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
+        print_r($connect);
         return "OK!!!";
     }
 }

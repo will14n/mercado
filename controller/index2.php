@@ -21,6 +21,6 @@ $cadastrar->setBaseCons('mercado.promocao');
 $cadastrar->conecta();
 print_r($cadastrar);
 */$cadastrar->insere();
-print_r($cadastrar);
+// print_r($cadastrar);
 
 ?>
