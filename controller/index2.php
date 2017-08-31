@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 include_once '../classes/conectaHeroku.php';
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
+use mongo-php-adapter-master\lib;
 
 $tpl = new Template("../pages/dados.html");
 $tpl->addFile("DADOS", "../pages/cadastros.html");
