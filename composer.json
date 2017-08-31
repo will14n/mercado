@@ -1,6 +1,8 @@
 {
   "provide": {
-    "ext-mongo": "1.6.12"
+    "ext-mongo": "1.6.12",
+    "doctrine/mongodb-odm": "dev-master",
+	"doctrine/mongodb": "dev-master"
   },
   "require": {
     "php": "^7.0",
