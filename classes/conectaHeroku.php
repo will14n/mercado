@@ -67,9 +67,9 @@ class Conectar{
     }
 
     function insere(){
-        namespace Alcaeus\MongoDbAdapter\Tests;
-        use MongoDB\Client;
-        
+        $m = new MongoClient;
+        var_dump($m);
+        var_dump($m->getConnections());
         return "OK!!!";
     }
 }
