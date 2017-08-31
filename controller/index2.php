@@ -13,7 +13,7 @@ $tpl->addFile("DADOS", "../pages/cadastros.html");
 $tpl->block("BLOCK_CADASTRO_CLIENTE");
 $tpl->block("BLOCK_DADOS");
 $tpl->show();
-$mongo_url = parse_url(getenv("MONGO_URL"));
+$mongo_url = parse_url(getenv("MONGODB_URI"));
 print_r($mongo_url);
 // $cadastrar = new Conectar();
 /*$cadastrar->setServidor('localhost');
