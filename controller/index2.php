@@ -13,14 +13,14 @@ $tpl->block("BLOCK_DADOS");
 $tpl->show();
 
 $cadastrar = new Conectar();
-$cadastrar->setServidor('localhost');
+/*$cadastrar->setServidor('localhost');
 $cadastrar->setUserCon('root');
 $cadastrar->setPwdCon('root');
 $cadastrar->setBaseCon('admin');
 $cadastrar->setBaseCons('mercado.promocao');
 $cadastrar->conecta();
 print_r($cadastrar);
-$cadastrar->insere();
+*/$cadastrar->insere();
 print_r($cadastrar);
 
 ?>
