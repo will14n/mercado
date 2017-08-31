@@ -27,4 +27,4 @@
 //   # disconnect
 //   $m->close();
 
-header("location: ./controller/index.php");
+header("location: ./controller/index2.php");
