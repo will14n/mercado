@@ -1,11 +1,12 @@
 {
   "provide": {
     "ext-mongo": "1.6.12",
-    "doctrine/mongodb-odm": "dev-master",
-	"doctrine/mongodb": "dev-master"
+    
   },
   "require": {
     "php": "^7.0",
-    "alcaeus/mongo-php-adapter": "^1.1"
+    "alcaeus/mongo-php-adapter": "^1.1",
+    "doctrine/mongodb-odm": "dev-master",
+	"doctrine/mongodb": "dev-master"
   }
 }
