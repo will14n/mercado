@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 include_once '../classes/conectaHeroku.php';
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
-require_once("../lib/mongo-php-adapter-master/lib/");
+use lib\mongo-php-adapter-master\lib;
 require_once("../lib/mongo-php-adapter-master/lib/Mongo/MongoClient.php");
 
 $tpl = new Template("../pages/dados.html");
