@@ -1,4 +1,7 @@
 {
+  "provide": {
+    "ext-mongo": "1.6.12"
+  },
   "require": {
     "php": "^7.0",
     "alcaeus/mongo-php-adapter": "^1.1"
