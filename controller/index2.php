@@ -6,10 +6,7 @@ include_once '../classes/conectaHeroku.php';
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
 
-
-namespace Alcaeus\MongoDbAdapter;
-
-use mongo-php-adapter-master\lib\Alcaeus\MongoDbAdapter\Helper\AbstractCursor;
+include_once 'mongo-php-adapter-master\lib\Alcaeus\MongoDbAdapter\Helper\AbstractCursor';
 
 
 $tpl = new Template("../pages/dados.html");
