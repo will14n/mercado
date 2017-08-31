@@ -67,11 +67,7 @@ class Conectar{
     }
 
     function insere(){
-        $m = new MongoClient();
-    	$collection = $m->selectCollection('mercado', 'filiais');
-
-	var_dump($collection->count());
+        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
         return "OK!!!";
     }
-     
 }
