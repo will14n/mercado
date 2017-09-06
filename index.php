@@ -21,7 +21,11 @@ $cadastrar->insere();*/
 
 $bulk = new MongoDB\Driver\BulkWrite(['ordered' => true]);
 $bulk->insert(['_id' => 1, 'x' => 1]);
+$bulk->insert(['_id' => 2, 'x' => 2]);
+$bulk->update(['x' => 2], ['$set' => ['x' => 1]]);
+$bulk->insert(['_id' => 3, 'x' => 3]);
+$bulk->delete(['x' => 1]);
 
 print_r($bulk);
-print_r($cadastrar);
+// print_r($cadastrar);
 // header("location: ./controller/index.php");
