@@ -18,7 +18,10 @@ $filiais->setBaseCon('admin');
 $filiais->setCon([NULL], $projecao);
 $filiais->setBaseCons('mercado.filiais');
 $filiais->conecta();
-print_r($filiais);
+foreach ($filiais->conecta() as $p) {
+
+	print_r($p);exit;
+}
 /*
 $tpl = new Template("../pages/dados.html");
 $tpl->addFile("DADOS", "../pages/cadastros.html");
