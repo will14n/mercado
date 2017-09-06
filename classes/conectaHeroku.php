@@ -72,6 +72,7 @@ class Conectar{
         $doc = $this->con;
         $bulk->insert($doc);
         $connect->executeBulkWrite($this->baseCons, $bulk);
+        print_r($connect);
         return "OK!!!";   
     }
 }
