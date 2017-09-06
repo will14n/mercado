@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors',1);
 error_reporting(E_ALL);
-include_once '../classes/conectaHeroku.php';
+include_once './classes/conectaHeroku.php';
 
 $con = [
                     'cod_filial' => 'filialCodigo',
