@@ -1,19 +1,23 @@
 <?php
 ini_set('display_errors',1);
 error_reporting(E_ALL);
+include_once '../classes/conectaHeroku.php';
 
 $con = [
-                    'cod_filial' => 10,
+                    'cod_filial' => 'filialCodigo',
                     'nome' => 'filialNome',
                     'endereco' => 'filialEndereco',
                     'observacao' => 'filialObservacao'
                 ];
 
-$connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
-$bulk = new MongoDB\Driver\BulkWrite;
-$doc = $con;
-$bulk->insert($doc);
-$connect->executeBulkWrite('mercado.filiais', $bulk); 
+$cadastrar = new Conectar();
+$cadastrar->setServidor('localhost');
+$cadastrar->setUserCon('root');
+$cadastrar->setPwdCon('root');
+$cadastrar->setBaseCon('admin');
+$cadastrar->setCon($con);
+$cadastrar->setBaseCons('mercado.filiais');
+$cadastrar->insere();
 
-print_r($connect);
-// header("location: ./controller/index.php");
+
+header("location: ./controller/index.php");
