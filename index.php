@@ -20,4 +20,4 @@ $cadastrar->setBaseCons('mercado.filiais');
 $cadastrar->insere();
 
 
-header("location: ./controller/index.php");
+// header("location: ./controller/index.php");
