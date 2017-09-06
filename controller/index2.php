@@ -7,6 +7,7 @@ require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
 // use lib\mongo-php-adapter-master\lib;
 // require_once("../lib/mongo-php-adapter-master/lib/Mongo/MongoClient.php");
+require('../vendor/autoload.php');
 
 $tpl = new Template("../pages/dados.html");
 $tpl->addFile("DADOS", "../pages/cadastros.html");
