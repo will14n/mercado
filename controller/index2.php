@@ -8,17 +8,17 @@ require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
 // use lib\mongo-php-adapter-master\lib;
 // require_once("../lib/mongo-php-adapter-master/lib/Mongo/MongoClient.php");
-require('../vendor/autoload.php');
+// require('../vendor/autoload.php');
 
 $filiais = new Conectar();
-	$filiais->setServidor('localhost');
-	$filiais->setUserCon('root');
-	$filiais->setPwdCon('root');
-	$filiais->setBaseCon('admin');
-	$filiais->setCon([NULL], $projecao);
-	$filiais->setBaseCons('mercado.filiais');
-	$filiais->conecta();
-	print_r($filiais);
+$filiais->setServidor('localhost');
+$filiais->setUserCon('root');
+$filiais->setPwdCon('root');
+$filiais->setBaseCon('admin');
+$filiais->setCon([NULL], $projecao);
+$filiais->setBaseCons('mercado.filiais');
+$filiais->conecta();
+print_r($filiais);
 /*
 $tpl = new Template("../pages/dados.html");
 $tpl->addFile("DADOS", "../pages/cadastros.html");
