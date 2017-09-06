@@ -8,6 +8,7 @@ use raelgc\view\Template;
 // use lib\mongo-php-adapter-master\lib;
 // require_once("../lib/mongo-php-adapter-master/lib/Mongo/MongoClient.php");
 // require('../vendor/autoload.php');
+$projecao = ['_id' => 0];
 
 $filiais = new Conectar();
 $filiais->setServidor('localhost');
