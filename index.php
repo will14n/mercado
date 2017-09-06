@@ -3,10 +3,10 @@ ini_set('display_errors',1);
 error_reporting(E_ALL);
 
 $con = [
-                    'cod_filial' => $_POST['filialCodigo'],
-                    'nome' => $_POST['filialNome'],
-                    'endereco' => $_POST['filialEndereco'],
-                    'observacao' => $_POST['filialObservacao']
+                    'cod_filial' => 10,
+                    'nome' => 'filialNome',
+                    'endereco' => 'filialEndereco',
+                    'observacao' => 'filialObservacao'
                 ];
 
 $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
