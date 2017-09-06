@@ -68,7 +68,7 @@ class Conectar{
 
     function insere(){
         // $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/heroku_b31jlb5p");
-        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/heroku_b31jlb5p");
+        $connect = new \MongoDB\Driver\Manager("mongodb://willianf4m:silveira1@ds023523.mlab.com:23523/mercado");
         $bulk = new MongoDB\Driver\BulkWrite;
         $doc = $this->con;
         $bulk->insert($doc);
