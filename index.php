@@ -15,5 +15,5 @@ $doc = $con;
 $bulk->insert($doc);
 $connect->executeBulkWrite('mercado.filiais', $bulk); 
 
-print_r($connect2);
+print_r($connect);
 // header("location: ./controller/index.php");
