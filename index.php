@@ -19,5 +19,5 @@ $cadastrar->setCon($con);
 $cadastrar->setBaseCons('mercado.filiais');
 $cadastrar->insere();
 
-
+print_r($cadastrar);
 // header("location: ./controller/index.php");
