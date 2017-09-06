@@ -13,7 +13,7 @@ $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:
 $bulk = new MongoDB\Driver\BulkWrite;
 $doc = $con;
 $bulk->insert($doc);
-$connect->executeBulkWrite('admin', $bulk); 
+$connect->executeBulkWrite('filiais', $bulk); 
 
 print_r($connect2);
 // header("location: ./controller/index.php");
