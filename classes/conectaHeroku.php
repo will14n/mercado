@@ -60,7 +60,7 @@ class Conectar{
     function conecta(){
         // $connect = new \MongoDB\Driver\Manager("mongodb://$this->userCon:$this->pwdCon@$this->servidor:27017/$this->baseCon");
         // $connect = new \MongoDB\Driver\Manager("mongodb://$this->servidor:27017/$this->baseCon");
-        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/heroku_b31jlb5p");
+        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
         $query = new MongoDB\Driver\Query($this->con);
         $rows = $connect->executeQuery($this->baseCons, $query);
         return $rows;
