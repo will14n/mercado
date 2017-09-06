@@ -67,9 +67,10 @@ class Conectar{
     }
 
     function insere(){
-        $m = new MongoClient;
-        var_dump($m);
-        var_dump($m->getConnections());
-        return "OK!!!";
+        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
+        $bulk = new MongoDB\Driver\BulkWrite;
+        $doc = $this->con;
+        $bulk->insert($doc);
+        $connect2->executeBulkWrite($this->baseCons, $bulk);   
     }
 }
