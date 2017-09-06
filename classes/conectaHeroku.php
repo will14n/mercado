@@ -60,7 +60,7 @@ class Conectar{
     function conecta(){
         // $connect = new \MongoDB\Driver\Manager("mongodb://$this->userCon:$this->pwdCon@$this->servidor:27017/$this->baseCon");
         // $connect = new \MongoDB\Driver\Manager("mongodb://$this->servidor:27017/$this->baseCon");
-        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
+        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/heroku_b31jlb5p");
         $query = new MongoDB\Driver\Query($this->con);
         $rows = $connect->executeQuery($this->baseCons, $query);
         return $rows;
@@ -68,7 +68,7 @@ class Conectar{
 
     function insere(){
         // $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/heroku_b31jlb5p");
-        $connect = new \MongoDB\Driver\Manager("mongodb://willianf4m:silveira1@ds023523.mlab.com:23523/mercado");
+        $connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/heroku_b31jlb5p");
         $bulk = new MongoDB\Driver\BulkWrite;
         $doc = $this->con;
         $bulk->insert($doc);
