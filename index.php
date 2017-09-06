@@ -31,7 +31,7 @@ $bulk->insert(['_id' => 3]);
 $bulk->insert(['_id' => 4]);
 $bulk->insert(['_id' => 5]);
 
-$manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+$manager = new MongoDB\Driver\Manager('mongodb://admin:admin@ds023523.mlab.com:23523/heroku_b31jlb5p');
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
 
 try {
