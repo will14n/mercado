@@ -216,7 +216,7 @@ else if($_GET['page'] == 'login') {
 
 				foreach ($cadastrar->conecta() as $p) {
 
-					if(md5($_POST['usr']) === $p->login) {
+					if($_POST['usr'] === $p->login) {
 
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
 						$tpl->NOME = $con['login'];
