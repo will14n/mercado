@@ -221,7 +221,7 @@ else if($_GET['page'] == 'login') {
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
 						$tpl->NOME = $con['login'];
 						$tpl->block("BLOCK_LOGIN_EXISTENTE");
-						$tpl->show();
+
 						include_once '../pages/footer.html';
 						break;
 						exit();
@@ -230,6 +230,7 @@ else if($_GET['page'] == 'login') {
 						continue;
 					}
 				}
+				print_r($tpl);
 				$cadastrar->insere(); 
 				$_SESSION['usuario'] = $_POST['usr'];
 				// header('location: ./index.php?page=cadastro&tipo=login');
