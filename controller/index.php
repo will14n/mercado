@@ -224,6 +224,7 @@ else if($_GET['page'] == 'login') {
 						$tpl->block("BLOCK_DADOS");
 						$tpl->show();
 						include_once '../pages/footer.html';
+						$exit = "true";
 						break;
 						exit();
 					}
@@ -231,12 +232,15 @@ else if($_GET['page'] == 'login') {
 						continue;
 					}
 				}
-				$cadastrar->insere(); 
-				$_SESSION['usuario'] = $_POST['usr'];
-				// header('location: ./index.php?page=cadastro&tipo=login');
-				$tpl->addFile("DADOS", "../pages/cadastrado.html");
-				$tpl->NOME = $con['login'];
-				$tpl->block("BLOCK_CADASTRO");
+				if($exit != "true") {
+					
+					$cadastrar->insere(); 
+					$_SESSION['usuario'] = $_POST['usr'];
+					// header('location: ./index.php?page=cadastro&tipo=login');
+					$tpl->addFile("DADOS", "../pages/cadastrado.html");
+					$tpl->NOME = $con['login'];
+					$tpl->block("BLOCK_CADASTRO");
+				}
 			}
 		}
 	}
