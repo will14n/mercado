@@ -232,14 +232,12 @@ else if($_GET['page'] == 'login') {
 					}
 				}
 
-
-					$cadastrar->insere(); 
-					$_SESSION['usuario'] = $_POST['usr'];
-					// header('location: ./index.php?page=cadastro&tipo=login');
-					$tpl->addFile("DADOS", "../pages/cadastrado.html");
-					$tpl->NOME = $con['login'];
-					$tpl->block("BLOCK_CADASTRO");
-
+				$cadastrar->insere(); 
+				$_SESSION['usuario'] = $_POST['usr'];
+				// header('location: ./index.php?page=cadastro&tipo=login');
+				$tpl->addFile("DADOS", "../pages/cadastrado.html");
+				$tpl->NOME = $con['login'];
+				$tpl->block("BLOCK_CADASTRO");
 			}
 		}
 	}
