@@ -157,7 +157,6 @@ else if($_GET['page'] == 'login') {
 		else {
 			$tpl->addFile("DADOS", "../pages/login.html");
 			if(/*$_SESSION['admin']*/true) {
-				print_r($tpl);exit;
 				$tpl->block("BLOCK_CADASTRO");
 			}
 		}
@@ -179,7 +178,7 @@ else if($_GET['page'] == 'login') {
 				$teste->setBaseCons('mercado.usuarios');
 
 				foreach ($teste->conecta() as $p) {
-
+					echo md5($_POST['pwd'])."<>".$p->senha."\n";
 					if(md5($_POST['pwd']) === $p->senha) {
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
@@ -192,7 +191,7 @@ else if($_GET['page'] == 'login') {
 					}
 				}
 				$tpl->addFile("DADOS", "../pages/cadastrado.html");
-				$tpl->block("BLOCK_LOGIN_INCORRETO");
+				$tpl->block("BLOCK_LOGIN_INCORRETO");exit;
 			}
 			else {
 
