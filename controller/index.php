@@ -215,7 +215,7 @@ else if($_GET['page'] == 'login') {
 				$cadastrar->setBaseCons('mercado.usuarios');
 
 				foreach ($cadastrar->conecta() as $p) {
-
+					echo $_POST['usr']."<>".$p->login."\n";	
 					if($_POST['usr'] === $p->login) {
 
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
