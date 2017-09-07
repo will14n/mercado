@@ -194,8 +194,9 @@ else if($_GET['page'] == 'login') {
 						continue;
 					}
 				}
+				print_r($tpl);exit;
 				$tpl->addFile("DADOS", "../pages/cadastrado.html");
-				$tpl->block("BLOCK_LOGIN_INCORRETO");exit;
+				$tpl->block("BLOCK_LOGIN_INCORRETO");
 			}
 			else {
 
