@@ -12,11 +12,11 @@ include_once '../pages/headerLogo.html';
 $tpl = new Template("../pages/nav.html");
 
 if(isset($_GET['logout'])) {
-	print_r($_SESSION);
+
 	$_SESSION['autentica'] = false;
 	session_destroy();
 }
-print_r($_GET);
+
 if($_SESSION['autentica'] == "true") {
 	$tpl->ACESSO = "../controller/index.php?page=login";
 }
@@ -213,6 +213,23 @@ else if($_GET['page'] == 'login') {
 				$cadastrar->setBaseCon('admin');
 				$cadastrar->setCon($con);
 				$cadastrar->setBaseCons('mercado.usuarios');
+
+				foreach ($cadastrar->conecta() as $p) {
+
+					if(md5($_POST['usr']) === $p->login) {
+
+						$tpl->addFile("DADOS", "../pages/cadastrado.html");
+						$tpl->NOME = $con['login'];
+						$tpl->block("BLOCK_LOGIN_EXISTENTE");
+						$tpl->show();
+						break;
+						exit();
+					}
+					else{
+						continue;
+					}
+				}
+
 				$cadastrar->insere(); 
 				$_SESSION['usuario'] = $_POST['usr'];
 				// header('location: ./index.php?page=cadastro&tipo=login');
