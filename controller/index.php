@@ -178,8 +178,8 @@ else if($_GET['page'] == 'login') {
 				$teste->setBaseCons('mercado.usuarios');
 
 				foreach ($teste->conecta() as $p) {
-					echo md5($_POST['pwd'])."<>".md5($p->senha)."\n";
-					if(md5($_POST['pwd']) === md5($p->senha)) {
+
+					if(md5($_POST['pwd']) === $p->senha) {
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
 						$tpl->addFile("DADOS", "../pages/login.html");
