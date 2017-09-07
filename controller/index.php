@@ -11,7 +11,7 @@ include_once '../pages/header.html';
 include_once '../pages/headerLogo.html';
 $tpl = new Template("../pages/nav.html");
 
-if($_GET['logout']) {
+if(isset($_GET['logout'])) {
 	print_r($_SESSION);
 	$_SESSION['autentica'] = false;
 	session_destroy();
