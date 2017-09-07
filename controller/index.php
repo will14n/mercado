@@ -12,7 +12,8 @@ include_once '../pages/headerLogo.html';
 $tpl = new Template("../pages/nav.html");
 
 if($_GET['logout']) {
-	$_SESSION['autentica'] = false;	
+	$_SESSION['autentica'] = false;
+	session_destroy();
 }
 
 if($_SESSION['autentica'] == "true") {
