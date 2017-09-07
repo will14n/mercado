@@ -14,7 +14,7 @@ $tpl = new Template("../pages/nav.html");
 if($_GET['logout']) {
 	$_SESSION['autentica'] = false;	
 }
-print_r($_SESSION);exit;
+
 if($_SESSION['autentica'] == "true") {
 	$tpl->ACESSO = "../controller/index.php?page=login";
 }
