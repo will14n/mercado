@@ -215,14 +215,14 @@ else if($_GET['page'] == 'login') {
 				$cadastrar->setBaseCons('mercado.usuarios');
 
 				foreach ($cadastrar->conecta() as $p) {
-					echo $_POST['usr']."<>".$p->login."\n";	
+
 					if($_POST['usr'] === $p->login) {
 
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
 						$tpl->NOME = $con['login'];
 						$tpl->block("BLOCK_LOGIN_EXISTENTE");
-						$tpl->block("BLOCK_DADOS");
 						$tpl->show();
+						include_once '../pages/footer.html';
 						break;
 						exit();
 					}
