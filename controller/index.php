@@ -189,6 +189,7 @@ else if($_GET['page'] == 'login') {
 						$_SESSION['usuario'] = $_POST['usr'];
 						$tpl->addFile("DADOS", "../pages/login.html");
 						break;
+						header('location: ./index.php?page=login');
 						exit();
 					}
 					else{
