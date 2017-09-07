@@ -217,12 +217,12 @@ else if($_GET['page'] == 'login') {
 				foreach ($cadastrar->conecta() as $p) {
 
 					if($_POST['usr'] === $p->login) {
-						echo "string";
+
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
 						$tpl->NOME = $con['login'];
 						$tpl->block("BLOCK_LOGIN_EXISTENTE");
 						$tpl->show();
-						include_once '../pages/footer.html';
+
 						break;
 						exit();
 					}
