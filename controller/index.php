@@ -15,7 +15,7 @@ if($_GET['logout']) {
 	$_SESSION['autentica'] = false;
 	session_destroy();
 }
-
+print_r($_SESSION);
 if($_SESSION['autentica'] == "true") {
 	$tpl->ACESSO = "../controller/index.php?page=login";
 }
