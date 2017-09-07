@@ -10,11 +10,11 @@ use raelgc\view\Template;
 include_once '../pages/header.html';
 include_once '../pages/headerLogo.html';
 $tpl = new Template("../pages/nav.html");
-print_r($_GET);exit;
+
 if($_GET['logout']) {
 	$_SESSION['autentica'] = false;	
 }
-
+print_r($_SESSION);exit;
 if($_SESSION['autentica'] == "true") {
 	$tpl->ACESSO = "../controller/index.php?page=login";
 }
