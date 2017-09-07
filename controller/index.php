@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 include_once '../classes/conectaHeroku.php'; #CLASSE DE CONEXAO HEROKU
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
-
+print_r($_POST);
 include_once '../pages/header.html';
 include_once '../pages/headerLogo.html';
 $tpl = new Template("../pages/nav.html");
@@ -179,7 +179,7 @@ else if($_GET['page'] == 'login') {
 
 				foreach ($teste->conecta() as $p) {
 
-					if(md5($_POST['pwd']) === $p->senha) {
+					if(md5($_POST['pwd']) === md5($p->senha)) {
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
 						$tpl->addFile("DADOS", "../pages/login.html");
@@ -209,7 +209,9 @@ else if($_GET['page'] == 'login') {
 				$cadastrar->setBaseCons('mercado.usuarios');
 				$cadastrar->insere(); 
 				$_SESSION['usuario'] = $_POST['usr'];
-				header('location: ./index.php?page=cadastro&tipo=login');
+				// header('location: ./index.php?page=cadastro&tipo=login');
+				$tpl->addFile("DADOS", "../pages/cadastrado.html");
+				$tpl->NOME = $con['login'];
 				$tpl->block("BLOCK_CADASTRO");
 			}
 		}
