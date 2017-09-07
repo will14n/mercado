@@ -396,5 +396,4 @@ else{
 $tpl->block("BLOCK_DADOS");
 $tpl->show();
 include_once '../pages/footer.html';
-
 ?>
