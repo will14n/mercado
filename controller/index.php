@@ -230,7 +230,7 @@ else if($_GET['page'] == 'login') {
 					else{
 						continue;
 					}
-				}exit;
+				}
 				$cadastrar->insere(); 
 				$_SESSION['usuario'] = $_POST['usr'];
 				// header('location: ./index.php?page=cadastro&tipo=login');
