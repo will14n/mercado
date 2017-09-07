@@ -183,7 +183,7 @@ else if($_GET['page'] == 'login') {
 				$teste->setBaseCons('mercado.usuarios');
 
 				foreach ($teste->conecta() as $p) {
-					echo md5($_POST['pwd'])."<>".$p->senha."\n";
+
 					if(md5($_POST['pwd']) === $p->senha) {
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
@@ -195,7 +195,6 @@ else if($_GET['page'] == 'login') {
 						continue;
 					}
 				}
-				print_r($tpl);exit;
 				$tpl->addFile("DADOS", "../pages/cadastrado.html");
 				$tpl->block("BLOCK_LOGIN_INCORRETO");
 			}
