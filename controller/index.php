@@ -49,6 +49,9 @@ else if($_GET['page'] == 'varejo') {
 	$tpl->ATIVA_PROMOCAO_MENU = 'active';
 	$tpl->ATIVA_VAREJO = 'active';
 }
+else if($_GET['page'] == 'cadastros') {
+	$tpl->ATIVA_LOGIN = 'active';
+}
 else {
 	$tpl->ATIVA_INDEX = 'active';	
 }
@@ -95,8 +98,11 @@ else if($_GET['page'] == 'login') {
 		if($_POST['cadastro']) {
 
 			$tpl->addFile("DADOS", "../pages/cadastrado.html");
-
-			if($_POST['filial']) {
+			if($_POST['cancelar'] == 'Submit') {
+				header('location: ./index.php?page=login');
+				exit;
+			}
+			else if($_POST['filial']) {
 
 				$con = [
 					'cod_filial' => $_POST['filialCodigo'],
@@ -138,13 +144,24 @@ else if($_GET['page'] == 'login') {
 			}
 			else if($_POST['produto']) {
 
+				if($_POST['produtoCategoria']['promocao']) {
+					$categoria = "promocao";
+				}
+				else if($_POST['produtoCategoria']['atacado']) {
+					$categoria = "atacado";
+				}
+				else if($_POST['produtoCategoria']['varejo']) {
+					$categoria = "varejo";
+				}
+
 				$con = [
-					'cod_promocao' => $_POST['filialNome'],
-					'descricao' => $_POST['filialNome'],
-					'preco_unit' => $_POST['filialEndereco'],
-					'qtd_produto' => $_POST['filialEndereco'],
-					'observacao' => $_POST['filialObservacao'],
-					'icone' => $_POST['filialObservacao']
+					'cod_promocao' => $_POST['produtoCodigo'],
+					'descricao' => $_POST['produtoDescricao'],
+					'preco_unit' => $_POST['produtoPreco'],
+					'qtd_produto' => $_POST['produtoQuantidade'],
+					'observacao' => $_POST['produtoObservacao'],
+					'icone' => $_POST['produtoIcone'],
+					'categoria' => $categoria
 				];
 
 				$cadastrar = new Conectar();
@@ -279,13 +296,17 @@ else if($_GET['page'] == 'promocao') {
 	$tpl->TITULO = "Promoção";
 	
 	foreach ($promocao->conecta() as $p) {
+		print_r($p);exit;
+		if($p->categoria == 'promocao') {
 
-		// print_r($p);exit;
-	    $tpl->DESCRICAO = $p->descricao;
-	    $tpl->OBSERVACAO = $p->observacao;
-	    $tpl->ICONE = $p->icone;
-	    $tpl->block("BLOCK_PROMOCOES");
+		    $tpl->DESCRICAO = $p->descricao;
+		    $tpl->OBSERVACAO = $p->observacao;
+		    $tpl->ICONE = $p->icone;
+		    $tpl->block("BLOCK_PROMOCOES");
+		}
+		else {
 
+		}
     }
 }
 else if($_GET['page'] == 'atacado') {
@@ -345,6 +366,9 @@ else if($_GET['page'] == 'cadastro'){
 else if($_GET['page'] == 'cadastros'){
 	$tpl->addFile("DADOS", "../pages/cadastros.html");
 	
+	if($_GET['tipo'] == "cadastroPessoa") {
+		$tpl->block("BLOCK_CADASTRO_PESSOA");
+	}
 	if($_GET['tipo'] == "cadastroFilial") {
 		$tpl->block("BLOCK_CADASTRO_FILIAL");
 	}

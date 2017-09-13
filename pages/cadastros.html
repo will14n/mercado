@@ -1,34 +1,98 @@
 <section class="container conteudoCentral">
+	<!-- BEGIN BLOCK_CADASTRO_PESSOA -->
+	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
+		<input type="hidden" name="cadastro" value="true">
+		<div class="col-sm-12">
+			<h3><b>Cadastro de Pessoas</b></h3>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="email">Nome:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="pessoaNome" name="pessoaNome" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="pwd">CPF:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="pessoaCpf" name="pessoaCpf" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="pwd">Endereço:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="pessoaEndereco" name="pessoaEndereco" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="pwd">Telefone:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="pessoaTelefone" name="pessoaTelefone" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="pwd">Data de Nascimento:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="pessoaDataNascimento" name="pessoaDataNascimento" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="pwd">Conta Paypal:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="pessoaPaypal" name="pessoaPaypal" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="pwd">E-mail:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="pessoaEmail" name="pessoaEmail" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-default" name="pessoa" value="Submit">Confirmar</button>
+				&nbsp;
+				&nbsp;
+				<button type="submit" class="btn btn-default" name="cancelar" value="Submit">Cancelar</button>
+			</div>
+		</div>
+	</form>
+	<!-- END BLOCK_CADASTRO_PESSOA -->
 	<!-- BEGIN BLOCK_CADASTRO_FILIAL -->
 	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
 		<input type="hidden" name="cadastro" value="true">
+		<div class="col-sm-12">
+			<h3><b>Cadastro de Filial</b></h3>
+		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="email">Código da filial:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="filialCodigo" name="filialCodigo">
+				<input type="text" class="form-control" id="filialCodigo" name="filialCodigo" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Nome da loja:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="filialNome" name="filialNome">
+				<input type="text" class="form-control" id="filialNome" name="filialNome" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Endereço:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="filialEndereco" name="filialEndereco">
+				<input type="text" class="form-control" id="filialEndereco" name="filialEndereco" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Observação:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="filialObservacao" name="filialObservacao">
+				<input type="text" class="form-control" id="filialObservacao" name="filialObservacao" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-12">
-				<button type="submit" class="btn btn-default" name="filial" value="Submit">Submit</button>
+				<button type="submit" class="btn btn-default" name="filial" value="Submit">Confirmar</button>
+				&nbsp;
+				&nbsp;
+				<button type="submit" class="btn btn-default" name="cancelar" value="Submit">Cancelar</button>
 			</div>
 		</div>
 	</form>
@@ -36,21 +100,27 @@
 	<!-- BEGIN BLOCK_CADASTRO_OFERTA -->
 	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
 		<input type="hidden" name="cadastro" value="true">
+		<div class="col-sm-12">
+			<h3><b>Cadastro de Oferta</b></h3>
+		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="email">Caminho da imagem da oferta:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="ofertaCaminho" name="ofertaCaminho">
+				<input type="text" class="form-control" id="ofertaCaminho" name="ofertaCaminho" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Descrição da oferta:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="ofertaDescricao" name="ofertaDescricao">
+				<input type="text" class="form-control" id="ofertaDescricao" name="ofertaDescricao" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-12">
-				<button type="submit" class="btn btn-default" name="oferta" value="Submit">Submit</button>
+				<button type="submit" class="btn btn-default" name="oferta" value="Submit">Confirmar</button>
+				&nbsp;
+				&nbsp;
+				<button type="submit" class="btn btn-default" name="cancelar" value="Submit">Cancelar</button>
 			</div>
 		</div>
 	</form>
@@ -58,93 +128,64 @@
 	<!-- BEGIN BLOCK_CADASTRO_PRODUTO -->
 	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
 		<input type="hidden" name="cadastro" value="true">
+		<div class="col-sm-12">
+			<h3><b>Cadastro de Produto</b></h3>
+		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="email">Código do produto:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="promocaoCodigo" name="promocaoCodigo">
+				<input type="text" class="form-control" id="promocaoCodigo" name="promocaoCodigo" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Descrição do produto:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoDescricao" name="produtoDescricao">
+				<input type="text" class="form-control" id="produtoDescricao" name="produtoDescricao" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Preço do produto:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoPreco" name="produtoPreco">
+				<input type="text" class="form-control" id="produtoPreco" name="produtoPreco" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Quantidade:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoQuantidade" name="produtoQuantidade">
+				<input type="text" class="form-control" id="produtoQuantidade" name="produtoQuantidade" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Observação:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoObservação" name="produtoObservação">
+				<input type="text" class="form-control" id="produtoObservação" name="produtoObservação" required />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd">Nome do icone:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoIcone" name="produtoIcone">
+				<input type="text" class="form-control" id="produtoIcone" name="produtoIcone" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="pwd">Categoria:</label>
+			<div class="col-sm-2" style="text-align: left;">
+				<input type="radio" id="produtoCategoria1" name="produtoCategoria[promocao]" required> Promoção
+				<br />
+				<input type="radio" id="produtoCategoria2" name="produtoCategoria[atacado]"> Atacado
+				<br />
+				<input type="radio" id="produtoCategoria3" name="produtoCategoria[varejo]"> Varejo
+				<br />
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-12">
-				<button type="submit" class="btn btn-default" name="produto" value="Submit">Submit</button>
+				<button type="submit" class="btn btn-default" name="produto" value="Submit">Confirmar</button>
+				&nbsp;
+				&nbsp;
+				<button type="submit" class="btn btn-default" name="cancelar" value="Submit">Cancelar</button>
 			</div>
 		</div>
 	</form>
 	<!-- END BLOCK_CADASTRO_PRODUTO -->
-	<!-- BEGIN BLOCK_CADASTRO_CLIENTE -->
-	<form class="form-horizontal" action="../controller/index.php?page=login&cadastrado=true" method="POST">
-		<input type="hidden" name="cadastro" value="true">
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="email">Cliente:</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="promocaoCodigo" name="promocaoCodigo">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="pwd">NOME:</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoDescricao" name="produtoDescricao">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="pwd">XXXXXX:</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoPreco" name="produtoPreco">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="pwd">XXXXXX:</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoQuantidade" name="produtoQuantidade">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="pwd">XXXXXX:</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoObservação" name="produtoObservação">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="pwd">XXXXXX:</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="produtoIcone" name="produtoIcone">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-12">
-				<button type="submit" class="btn btn-default" name="produto" value="Submit">Submit</button>
-			</div>
-		</div>
-	</form>
-	<!-- END BLOCK_CADASTRO_CLIENTE -->
 </section>
