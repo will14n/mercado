@@ -184,7 +184,7 @@ else if($_GET['page'] == 'login') {
 		}
 		else {
 			$tpl->addFile("DADOS", "../pages/login.html");
-			if(/*$_SESSION['admin']*/true) {
+			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
 			}
 		}
