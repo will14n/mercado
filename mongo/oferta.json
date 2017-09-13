@@ -1,0 +1,3 @@
+{ "_id" : { "$oid" : "5955deb3b0dbe04f1240fd40" }, "src" : "../img/produto.png", "descricao" : "oferta 1" },
+{ "_id" : { "$oid" : "5955dec4b0dbe04f1240fd41" }, "src" : "../img/produto.png", "descricao" : "Oferta 2" },
+{ "_id" : { "$oid" : "5956f849b0dbe00dc78d06dd" }, "src" : "../img/produto.png", "descricao" : "Oferta 3" }
