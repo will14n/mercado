@@ -323,12 +323,14 @@ else if($_GET['page'] == 'atacado') {
 	
 	foreach ($atacado->conecta() as $p) {
 
-		// print_r($p);exit;
-	    $tpl->DESCRICAO = $p->descricao;
-	    $tpl->OBSERVACAO = $p->observacao;
-	    $tpl->ICONE = $p->icone;
-	    $tpl->block("BLOCK_PROMOCOES");
+		if($p->categoria == 'atacado') {
 
+			// print_r($p);exit;
+		    $tpl->DESCRICAO = $p->descricao;
+		    $tpl->OBSERVACAO = $p->observacao;
+		    $tpl->ICONE = $p->icone;
+		    $tpl->block("BLOCK_PROMOCOES");
+		}
     }
 }
 else if($_GET['page'] == 'varejo') {
@@ -348,12 +350,13 @@ else if($_GET['page'] == 'varejo') {
 
 	foreach ($varejo->conecta() as $p) {
 
-		// print_r($p);exit;
-	    $tpl->DESCRICAO = $p->descricao;
-	    $tpl->OBSERVACAO = $p->observacao;
-	    $tpl->ICONE = $p->icone;
-	    $tpl->block("BLOCK_PROMOCOES");
-
+		if($p->categoria == 'varejo') {
+			// print_r($p);exit;
+		    $tpl->DESCRICAO = $p->descricao;
+		    $tpl->OBSERVACAO = $p->observacao;
+		    $tpl->ICONE = $p->icone;
+		    $tpl->block("BLOCK_PROMOCOES");
+		}
     }
 }
 else if($_GET['page'] == 'cadastro'){
