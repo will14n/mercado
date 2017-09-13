@@ -296,16 +296,13 @@ else if($_GET['page'] == 'promocao') {
 	$tpl->TITULO = "Promoção";
 	
 	foreach ($promocao->conecta() as $p) {
-		print_r($p);exit;
+
 		if($p->categoria == 'promocao') {
 
 		    $tpl->DESCRICAO = $p->descricao;
 		    $tpl->OBSERVACAO = $p->observacao;
 		    $tpl->ICONE = $p->icone;
 		    $tpl->block("BLOCK_PROMOCOES");
-		}
-		else {
-
 		}
     }
 }
