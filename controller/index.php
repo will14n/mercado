@@ -15,14 +15,19 @@ if(isset($_GET['logout'])) {
 
 	$_SESSION['autentica'] = false;
 	session_destroy();
+	header('location: ./index.php?page=index');
+	exit;
 }
 
 if($_SESSION['autentica'] == "true") {
 	$tpl->ACESSO = "../controller/index.php?page=login";
+	// $tpl->addFile("DADOS", "../pages/nav.html");
+	$tpl->block("BLOCK_LOGOUT");
 }
 else {
 	$tpl->ACESSO = "#";
 	$tpl->DROPDOWN = "dropdown";	
+	$tpl->block("BLOCK_LOGIN");
 }
 
 if($_GET['page'] == 'index') {

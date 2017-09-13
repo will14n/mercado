@@ -55,3 +55,8 @@ section {
 .push {
 	height: 50px;
 }
+
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+}
