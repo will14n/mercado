@@ -107,9 +107,9 @@ else if($_GET['page'] == 'login' && $_GET['tipo'] == 'cadastroOferta'){
 	$tpl->addFile("DADOS", "../pages/cadastros.html");
 }
 else if($_GET['page'] == 'login') {
-	
+	print_r($_SESSION);
 	if($_SESSION['autentica'] == "true") {
-
+	
 		if($_POST['cadastro']) {
 
 			$tpl->addFile("DADOS", "../pages/cadastrado.html");
