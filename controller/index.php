@@ -201,7 +201,7 @@ else if($_GET['page'] == 'login') {
 		if($_SERVER['REQUEST_METHOD'] === 'POST') {
 			if($_POST['cadastrar']) {
 
-				$tpl->addFile("DADOS", "../pages/cadastrado.html");
+				$tpl->addFile("DADOS", "../pages/cadastros.html");
 				$tpl->block("BLOCK_CADASTRO_PESSOA");				
 			}
 			else {
