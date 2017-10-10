@@ -1,11 +1,14 @@
 {
-  "provide": {
-    "ext-mongo": "1.6.12"
-  },
-  "require": {
-    "php": "^7.0",
-    "ext-mongo": "*",
-    "alcaeus/mongo-php-adapter": "dev-master",
-    "doctrine/mongodb": "dev-master"
-  }
+    "provide": {
+        "ext-mongo": "1.6.12"
+    },
+    "require": {
+        "php": "^7.0",
+        "ext-mongo": "*",
+        "alcaeus/mongo-php-adapter": "dev-master",
+        "doctrine/mongodb": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    }
 }
