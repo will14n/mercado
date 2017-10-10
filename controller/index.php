@@ -13,7 +13,7 @@ use raelgc\view\Template;
 </pre>
 <pre>
 <?php
-print_r($_GET);
+print_r($_GET);	
 ?>
 </pre>
 <?php
@@ -107,9 +107,7 @@ else if($_GET['page'] == 'login' && $_GET['tipo'] == 'cadastroOferta'){
 	$tpl->addFile("DADOS", "../pages/cadastros.html");
 }
 else if($_GET['page'] == 'login') {
-	print_r($_SESSION);exit;
 	if($_SESSION['autentica'] == "true") {
-	
 		if($_POST['cadastro']) {
 
 			$tpl->addFile("DADOS", "../pages/cadastrado.html");
@@ -193,17 +191,25 @@ else if($_GET['page'] == 'login') {
 			}
 		}
 		else {
+
 			$tpl->addFile("DADOS", "../pages/login.html");
 			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
 			}
 		}
+
 	}
 	else {
 
 		if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-			if($_POST['login']) {
+			print_r($_POST);exit;
+			if($_POST['cadastrar']) {
+
+				$tpl->addFile("DADOS", "../pages/cadastrado.html");
+				$tpl->block("BLOCK_CADASTRO_PESSOA");				
+			}
+			else {
 
 				$projecao = ['_id' => 0];
 
@@ -230,46 +236,6 @@ else if($_GET['page'] == 'login') {
 				}
 				$tpl->addFile("DADOS", "../pages/cadastrado.html");
 				$tpl->block("BLOCK_LOGIN_INCORRETO");
-			}
-			else {
-
-				$con = [
-					'login' => $_POST['usr'],
-					'senha' => md5($_POST['pwd']),
-				];
-
-				$cadastrar = new Conectar();
-				$cadastrar->setServidor('localhost');
-				$cadastrar->setUserCon('root');
-				$cadastrar->setPwdCon('root');
-				$cadastrar->setBaseCon('admin');
-				$cadastrar->setCon($con);
-				$cadastrar->setBaseCons('mercado.usuarios');
-
-				foreach ($cadastrar->conecta() as $p) {
-
-					if($_POST['usr'] === $p->login) {
-
-						$tpl->addFile("DADOS", "../pages/cadastrado.html");
-						$tpl->NOME = $con['login'];
-						$tpl->block("BLOCK_LOGIN_EXISTENTE");
-						$tpl->block("BLOCK_DADOS");
-						$tpl->show();
-						include_once '../pages/footer.html';
-						$exit = "true";
-						exit();
-					}
-					else{
-						continue;
-					}
-				}
-
-				$cadastrar->insere(); 
-				$_SESSION['usuario'] = $_POST['usr'];
-				// header('location: ./index.php?page=cadastro&tipo=login');
-				$tpl->addFile("DADOS", "../pages/cadastrado.html");
-				$tpl->NOME = $con['login'];
-				$tpl->block("BLOCK_CADASTRO");
 			}
 		}
 	}
