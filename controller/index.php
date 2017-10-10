@@ -13,7 +13,7 @@ use raelgc\view\Template;
 </pre>
 <pre>
 <?php
-print_r($_GET);exit;
+print_r($_GET);
 ?>
 </pre>
 <?php
