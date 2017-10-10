@@ -191,19 +191,14 @@ else if($_GET['page'] == 'login') {
 			}
 		}
 		else {
-
 			$tpl->addFile("DADOS", "../pages/login.html");
 			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
 			}
 		}
-
 	}
 	else {
-
 		if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-			print_r($_POST);exit;
 			if($_POST['cadastrar']) {
 
 				$tpl->addFile("DADOS", "../pages/cadastrado.html");
