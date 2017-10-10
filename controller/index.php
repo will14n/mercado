@@ -13,7 +13,7 @@ use raelgc\view\Template;
 </pre>
 <pre>
 <?php
-print_r($_GET);exit;
+print_r($_GET);
 ?>
 </pre>
 <?php
@@ -107,7 +107,7 @@ else if($_GET['page'] == 'login' && $_GET['tipo'] == 'cadastroOferta'){
 	$tpl->addFile("DADOS", "../pages/cadastros.html");
 }
 else if($_GET['page'] == 'login') {
-	print_r($_SESSION);
+	print_r($_SESSION);exit;
 	if($_SESSION['autentica'] == "true") {
 	
 		if($_POST['cadastro']) {
