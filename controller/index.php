@@ -161,7 +161,7 @@ else if($_GET['page'] == 'login') {
 				else if($_POST['produtoCategoria']['varejo']) {
 					$categoria = "varejo";
 				}
-/*
+
 				$produto = new Produto();
 				$produto->setProdutoDescricao($_POST['produtoCodigo'],);
 				$produto->setProdutoDescricao($_POST['produtoDescricao'],);
@@ -170,9 +170,9 @@ else if($_GET['page'] == 'login') {
 				$produto->setProdutoObservacao($_POST['produtoObservacao'],);
 				$produto->setProdutoIcone($_POST['produtoIcone'],);
 				$produto->setProdutoCategoria($categoria);
-				$produto = $produto->insereProduto();
+				// $produto = $produto->insereProduto();
 
-				print_r($produto);exit;*/
+				print_r($produto);exit;
 
 				$con = [
 					'cod_promocao' => $_POST['produtoCodigo'],
