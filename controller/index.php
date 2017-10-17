@@ -162,17 +162,17 @@ else if($_GET['page'] == 'login') {
 					$categoria = "varejo";
 				}
 
-				$produto = new Produto();
-				$produto->setProdutoDescricao($_POST['produtoCodigo'],);
-				$produto->setProdutoDescricao($_POST['produtoDescricao'],);
-				$produto->setProdutoPreco($_POST['produtoPreco'],);
-				$produto->setProdutoQuantidade($_POST['produtoQuantidade'],);
-				$produto->setProdutoObservacao($_POST['produtoObservacao'],);
-				$produto->setProdutoIcone($_POST['produtoIcone'],);
-				$produto->setProdutoCategoria($categoria);
+				/*$produto = new Produto();
+				$produto->setProdutoDescricao($_POST['produtoCodigo']);
+				$produto->setProdutoDescricao($_POST['produtoDescricao']);
+				$produto->setProdutoPreco($_POST['produtoPreco']);
+				$produto->setProdutoQuantidade($_POST['produtoQuantidade']);
+				$produto->setProdutoObservacao($_POST['produtoObservacao']);
+				$produto->setProdutoIcone($_POST['produtoIcone']);
+				$produto->setProdutoCategoria($categoria);*/
 				// $produto = $produto->insereProduto();
 
-				print_r($produto);exit;
+				// print_r($produto);exit;
 
 				$con = [
 					'cod_promocao' => $_POST['produtoCodigo'],
