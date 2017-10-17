@@ -31,13 +31,6 @@ class Produto {
 		return $this->produtoPreco;
 	}
 
-	function setProdutoPreco($produtoPreco) {
-		$this->produtoPreco = $produtoPreco;
-	}
-	function getProdutoPreco() {
-		return $this->produtoPreco;
-	}
-
 	function setProdutoQuantidade($produtoQuantidade) {
 		$this->produtoQuantidade = $produtoQuantidade;
 	}
