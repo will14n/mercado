@@ -163,7 +163,7 @@ else if($_GET['page'] == 'login') {
 				}
 
 				$produto = new Produto();
-				$produto->setProdutoPromocaoCodigo($_POST['produtoCodigo']);
+				$produto->setProdutoPromocaoCodigo($_POST['promocaoCodigo']);
 				$produto->setProdutoDescricao($_POST['produtoDescricao']);
 				$produto->setProdutoPreco($_POST['produtoPreco']);
 				$produto->setProdutoQuantidade($_POST['produtoQuantidade']);
@@ -171,18 +171,6 @@ else if($_GET['page'] == 'login') {
 				$produto->setProdutoIcone($_POST['produtoIcone']);
 				$produto->setProdutoCategoria($categoria);
 				$produto = $produto->insereProduto();
-
-				print_r($produto);exit;
-
-				$con = [
-					'cod_promocao' => $_POST['produtoCodigo'],
-					'descricao' => $_POST['produtoDescricao'],
-					'preco_unit' => $_POST['produtoPreco'],
-					'qtd_produto' => $_POST['produtoQuantidade'],
-					'observacao' => $_POST['produtoObservacao'],
-					'icone' => $_POST['produtoIcone'],
-					'categoria' => $categoria
-				];
 
 				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
