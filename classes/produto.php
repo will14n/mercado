@@ -60,7 +60,7 @@ class Produto {
 	}
 
 	function insereProduto() {
-		$con=[
+		$con = [
 			'cod_promocao' => $this->getProdutoPromocaoCodigo(),
 			'descricao' => $this->getProdutoDescricao(),
 			'preco_unit' => $this->getProdutoPreco(),

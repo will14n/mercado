@@ -170,9 +170,9 @@ else if($_GET['page'] == 'login') {
 				$produto->setProdutoObservacao($_POST['produtoObservacao']);
 				$produto->setProdutoIcone($_POST['produtoIcone']);
 				$produto->setProdutoCategoria($categoria);
-				$con = $produto = $produto->insereProduto();
+				$produto = $produto->insereProduto();
 
-				print_r($con);exit;
+				print_r($produto);exit;
 
 				$con = [
 					'cod_promocao' => $_POST['produtoCodigo'],
