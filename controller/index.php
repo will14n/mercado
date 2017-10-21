@@ -163,7 +163,7 @@ else if($_GET['page'] == 'login') {
 				}
 
 				$produto = new Produto();
-				$produto->setProdutoDescricao($_POST['produtoCodigo']);
+				$produto->setProdutoPromocaoCodigo($_POST['produtoCodigo']);
 				$produto->setProdutoDescricao($_POST['produtoDescricao']);
 				$produto->setProdutoPreco($_POST['produtoPreco']);
 				$produto->setProdutoQuantidade($_POST['produtoQuantidade']);
