@@ -141,8 +141,8 @@ else if($_GET['page'] == 'login') {
 					'descricao' => $_POST['ofertaDescricao']
 				];
 
-				$oferta = new Oferta();
-				$oferta->setOferta
+				/*$oferta = new Oferta();
+				$oferta->set*/
 
 				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
