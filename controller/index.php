@@ -110,16 +110,16 @@ else if($_GET['page'] == 'login') {
 			}
 			else if($_POST['filial']) {
 
-				$con = [
-					'cod_filial' => $_POST['filialCodigo'],
-					'nome' => $_POST['filialNome'],
-					'endereco' => $_POST['filialEndereco'],
-					'observacao' => $_POST['filialObservacao']
-				];
+				$filial = new Filial();
+				$filial->setFilialCodigo($_POST['filialCodigo']);
+				$filial->setFilialNome($_POST['filialNome']);
+				$filial->setFilialEndereco($_POST['filialEndereco']);
+				$filial->setFilialObservacao($_POST['filialObservacao']);
+				$filial = $filial->insereFilial();
 
 				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
-				$cadastrar->setCon($con);
+				$cadastrar->setCon($filial);
 				$cadastrar->setBaseCons('mercado.filiais');
 				$cadastrar->insere();
 
@@ -127,11 +127,6 @@ else if($_GET['page'] == 'login') {
 				exit;
 			}
 			else if($_POST['oferta']) {
-
-				$con = [
-					'src' => $_POST['ofertaCaminho'],
-					'descricao' => $_POST['ofertaDescricao']
-				];
 
 				$oferta = new Oferta();
 				$oferta->setOfertaSrc($_POST['ofertaCaminho']);

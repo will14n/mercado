@@ -19,7 +19,7 @@ class Oferta {
 		return $this->ofertaDescricao;
 	}
 
-	function insere() {
+	function insereOferta() {
 		$con = [
 			'src' => $this->getOfertaSrc(),
 			'descricao' => $this->getOfertaDescricao(),
