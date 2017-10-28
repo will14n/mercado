@@ -211,7 +211,7 @@ else if($_GET['page'] == 'login') {
 			$usuario->setPwdCon('root');
 			$usuario->setBaseCon('admin');
 			$usuario->setCon([NULL], $projecao);
-			$usuario->setBaseCons('mercado.usuario');
+			$usuario->setBaseCons('mercado.usuarios');
 
 			foreach($usuario->conecta() as $p) {
 
