@@ -134,8 +134,8 @@ else if($_GET['page'] == 'login') {
 				];
 
 				$oferta = new Oferta();
-				$oferta->setSrc($_POST['ofertaCaminho']);
-				$oferta->setDescricao($_POST['ofertaDescricao']);
+				$oferta->setOfertaSrc($_POST['ofertaCaminho']);
+				$oferta->setOfertaDescricao($_POST['ofertaDescricao']);
 				$oferta = $oferta->insere();
 
 
