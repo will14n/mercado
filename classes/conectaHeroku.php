@@ -72,7 +72,7 @@ class Conectar{
         $bulk = new MongoDB\Driver\BulkWrite;
         $doc = $this->con;
         $bulk->insert($doc);
-        $connect->executeBulkWrite('admin', $bulk);
+        $connect->executeBulkWrite($this->baseCons, $bulk);
         return "OK!!!";   
     }
 }
