@@ -233,16 +233,16 @@ else if($_GET['page'] == 'login') {
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
 
-						$tpl = new Template("../pages/dados.html");
+
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
-						$tpl->ENDERECO = $p->pessoaEndereco;
-						$tpl->EMAIL = $p->pessoaEmail;
-						$tpl->CPF = $p->pessoaCpf;
-						$tpl->TELEFONE = $p->pessoaTelefone;
-						$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
-						$tpl->Paypal = $p->pessoaPaypal;
-						$tpl->LOGIN = $p->pessoaLogin;
-						$tpl->show();
+						// $tpl->ENDERECO = $p->pessoaEndereco;
+						// $tpl->EMAIL = $p->pessoaEmail;
+						// $tpl->CPF = $p->pessoaCpf;
+						// $tpl->TELEFONE = $p->pessoaTelefone;
+						// $tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
+						// $tpl->Paypal = $p->pessoaPaypal;
+						// $tpl->LOGIN = $p->pessoaLogin;
+						// $tpl->show();
 
 						header('location: ./index.php?page=login');
 						break;
