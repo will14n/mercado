@@ -136,7 +136,7 @@ else if($_GET['page'] == 'login') {
 				$oferta = new Oferta();
 				$oferta->setOfertaSrc($_POST['ofertaCaminho']);
 				$oferta->setOfertaDescricao($_POST['ofertaDescricao']);
-				$oferta = $oferta->insere();
+				$oferta = $oferta->insereOferta();
 
 
 				$cadastrar = new Conectar();
@@ -172,7 +172,7 @@ else if($_GET['page'] == 'login') {
 
 				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
-				$cadastrar->setCon($con);
+				$cadastrar->setCon($produto);
 				$cadastrar->setBaseCons('mercado.promocao');
 				$cadastrar->insere();
 
