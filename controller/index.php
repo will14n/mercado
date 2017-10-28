@@ -235,7 +235,7 @@ else if($_GET['page'] == 'login') {
 
 
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
-						print_r($p);exit;
+
 						$tpl->ENDERECO = $p->pessoaEndereco;
 						// $tpl->EMAIL = $p->pessoaEmail;
 						// $tpl->CPF = $p->pessoaCpf;
