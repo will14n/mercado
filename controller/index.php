@@ -203,7 +203,7 @@ else if($_GET['page'] == 'login') {
 		else {
 			$tpl->addFile("DADOS", "../pages/login.html");
 
-			$projecao = ['_id' => 0];
+			$projecao = ['_id' => $_SESSION['id']];
 
 			$usuario = new Conectar();
 			$usuario->setServidor('localhost');
@@ -216,11 +216,6 @@ else if($_GET['page'] == 'login') {
 			foreach($usuario->conecta() as $p) {
 
 				print_r($p);
-			    $tpl->NOME = $p->nome;
-			    $tpl->ENDERECO = $p->endereco;
-			    $tpl->OBSERVACAO = $p->observacao;
-			    $tpl->block("BLOCK_FILIAIS");
-
 		    }exit;
 			$tpl->ENDERECO = $p->pessoaEndereco;
 			$tpl->EMAIL = $p->pessoaEmail;
