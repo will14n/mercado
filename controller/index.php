@@ -234,15 +234,15 @@ else if($_GET['page'] == 'login') {
 						$_SESSION['usuario'] = $_POST['usr'];
 
 
-						$tpl->addFile("DADOS", "../pages/cadastrado.html");
+						$tpl->addFile("DADOS", "../pages/login.html");
 
 						$tpl->ENDERECO = $p->pessoaEndereco;
-						// $tpl->EMAIL = $p->pessoaEmail;
-						// $tpl->CPF = $p->pessoaCpf;
-						// $tpl->TELEFONE = $p->pessoaTelefone;
-						// $tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
-						// $tpl->Paypal = $p->pessoaPaypal;
-						// $tpl->LOGIN = $p->pessoaLogin;
+						$tpl->EMAIL = $p->pessoaEmail;
+						$tpl->CPF = $p->pessoaCpf;
+						$tpl->TELEFONE = $p->pessoaTelefone;
+						$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
+						$tpl->Paypal = $p->pessoaPaypal;
+						$tpl->LOGIN = $p->pessoaLogin;
 						// $tpl->show();
 
 						header('location: ./index.php?page=login');
