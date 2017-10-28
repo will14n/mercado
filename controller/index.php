@@ -202,9 +202,27 @@ else if($_GET['page'] == 'login') {
 		}
 		else {
 			$tpl->addFile("DADOS", "../pages/login.html");
-			echo "string@@@@@@@@@@@@@@@@@@@";exit();
-			$tpl->addFile("DADOS", "../pages/login.html");
 
+			print_r($_SESSION);exit;
+			$projecao = ['_id' => 0];
+
+			$usuario = new Conectar();
+			$usuario->setServidor('localhost');
+			$usuario->setUserCon('root');
+			$usuario->setPwdCon('root');
+			$usuario->setBaseCon('admin');
+			$usuario->setCon([NULL], $projecao);
+			$usuario->setBaseCons('mercado.filiais');
+
+			foreach($usuario->conecta() as $p) {
+
+				// print_r($p);exit;
+			    $tpl->NOME = $p->nome;
+			    $tpl->ENDERECO = $p->endereco;
+			    $tpl->OBSERVACAO = $p->observacao;
+			    $tpl->block("BLOCK_FILIAIS");
+
+		    }
 			$tpl->ENDERECO = $p->pessoaEndereco;
 			$tpl->EMAIL = $p->pessoaEmail;
 			$tpl->CPF = $p->pessoaCpf;
