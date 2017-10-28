@@ -212,7 +212,7 @@ else if($_GET['page'] == 'login') {
 			$usuario->setBaseCon('admin');
 			$usuario->setCon([NULL], $projecao);
 			$usuario->setBaseCons('mercado.usuario');
-			print_r($usuario->conecta());exit;
+
 			foreach($usuario->conecta() as $p) {
 
 				print_r($p);exit;
