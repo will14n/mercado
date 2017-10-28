@@ -3,6 +3,7 @@ session_start();
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 // include_once '../classes/conecta.php'; #CLASSE DE CONEXAO LOCAL
+include '../classes/filial.php';
 include '../classes/produto.php';
 include '../classes/oferta.php';
 include_once '../classes/conectaHeroku.php'; #CLASSE DE CONEXAO HEROKU
