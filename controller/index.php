@@ -215,13 +215,13 @@ else if($_GET['page'] == 'login') {
 
 			foreach($usuario->conecta() as $p) {
 
-				print_r($p);exit;
+				print_r($p);
 			    $tpl->NOME = $p->nome;
 			    $tpl->ENDERECO = $p->endereco;
 			    $tpl->OBSERVACAO = $p->observacao;
 			    $tpl->block("BLOCK_FILIAIS");
 
-		    }
+		    }exit;
 			$tpl->ENDERECO = $p->pessoaEndereco;
 			$tpl->EMAIL = $p->pessoaEmail;
 			$tpl->CPF = $p->pessoaCpf;
