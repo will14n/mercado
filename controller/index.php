@@ -123,7 +123,7 @@ else if($_GET['page'] == 'login') {
 				$pessoa->setPessoaLogin($_POST['pessoaLogin']);
 				$pessoa->setPessoaSenha($_POST['pessoaSenha']);
 				$pessoa = $pessoa->inserePessoa();
-
+				print_r($pessoa);exit;
 				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
 				$cadastrar->setCon($pessoa);
@@ -229,7 +229,7 @@ else if($_GET['page'] == 'login') {
 				foreach ($teste->conecta() as $p) {
 
 					if(md5($_POST['pwd']) === $p->senha) {
-
+						print_r($p);exit;
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
 						header('location: ./index.php?page=login');
