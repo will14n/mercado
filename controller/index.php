@@ -243,7 +243,7 @@ else if($_GET['page'] == 'login') {
 						$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
 						$tpl->Paypal = $p->pessoaPaypal;
 						$tpl->LOGIN = $p->pessoaLogin;
-						// $tpl->show();
+						$tpl->show();
 
 						header('location: ./index.php?page=login');
 						break;
