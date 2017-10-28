@@ -8,15 +8,6 @@ include_once '../classes/conectaHeroku.php'; #CLASSE DE CONEXAO HEROKU
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
 ?>
-<!-- <pre>
-<?php print_r($_POST);
-?>
-</pre>
-<pre>
-<?php
-print_r($_GET);	
-?>
-</pre> -->
 <?php
 include_once '../pages/header.html';
 include_once '../pages/headerLogo.html';
