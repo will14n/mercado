@@ -245,8 +245,8 @@ else if($_GET['page'] == 'login') {
 						$tpl->LOGIN = $p->pessoaLogin;
 						$tpl->show();
 
-						header('location: ./index.php?page=login');
-						break;
+						// header('location: ./index.php?page=login');
+						// break;
 						exit();
 					}
 					else{
