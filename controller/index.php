@@ -202,6 +202,16 @@ else if($_GET['page'] == 'login') {
 		}
 		else {
 			$tpl->addFile("DADOS", "../pages/login.html");
+			echo "string@@@@@@@@@@@@@@@@@@@";exit();
+			$tpl->addFile("DADOS", "../pages/login.html");
+
+			$tpl->ENDERECO = $p->pessoaEndereco;
+			$tpl->EMAIL = $p->pessoaEmail;
+			$tpl->CPF = $p->pessoaCpf;
+			$tpl->TELEFONE = $p->pessoaTelefone;
+			$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
+			$tpl->Paypal = $p->pessoaPaypal;
+			$tpl->LOGIN = $p->pessoaLogin;
 			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
 			}
@@ -232,21 +242,11 @@ else if($_GET['page'] == 'login') {
 
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
+						$_SESSION['login'] = $p->pessoaLogin;
+						$_SESSION['id'] =$p->_id;
 
-						print_r($p);exit;
-						$tpl->addFile("DADOS", "../pages/login.html");
-
-						$tpl->ENDERECO = $p->pessoaEndereco;
-						$tpl->EMAIL = $p->pessoaEmail;
-						$tpl->CPF = $p->pessoaCpf;
-						$tpl->TELEFONE = $p->pessoaTelefone;
-						$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
-						$tpl->Paypal = $p->pessoaPaypal;
-						$tpl->LOGIN = $p->pessoaLogin;
-						// $tpl->show();
-
-						// header('location: ./index.php?page=login');
-						// break;
+						header('location: ./index.php?page=login');
+						break;
 						exit();
 					}
 					else{
