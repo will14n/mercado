@@ -1,73 +1,28 @@
 <?php
 
-class Produto {
+class Oferta {
 
-	private $produtoPromocaoCodigo;
-	private	$produtoDescricao;
-	private	$produtoPreco;
-	private	$produtoQuantidade;
-	private	$produtoObservacao;
-	private	$produtoIcone;
-	private	$produtoCategoria;
-
-	function setProdutoPromocaoCodigo($produtoPromocaoCodigo) {
-		$this->produtoPromocaoCodigo = $produtoPromocaoCodigo;
+	private $ofertaSrc;
+	private	$ofertaDescricao;
+	
+	function setOfertaSrc($ofertaSrc) {
+		$this->ofertaSrc = $ofertaSrc;
 	}
-	function getProdutoPromocaoCodigo() {
-		return $this->produtoPromocaoCodigo;
+	function getOfertaSrc() {
+		return $this->ofertaSrc;
 	}
 
-	function setProdutoDescricao($produtoDescricao) {
-		$this->produtoDescricao = $produtoDescricao;
+	function setOfertaDescricao($ofertaDescricao) {
+		$this->ofertaDescricao = $ofertaDescricao;
 	}
-	function getProdutoDescricao() {
-		return $this->produtoDescricao;
-	}
-
-	function setProdutoPreco($produtoPreco) {
-		$this->produtoPreco = $produtoPreco;
-	}
-	function getProdutoPreco() {
-		return $this->produtoPreco;
+	function getOfertaDescricao() {
+		return $this->ofertaDescricao;
 	}
 
-	function setProdutoQuantidade($produtoQuantidade) {
-		$this->produtoQuantidade = $produtoQuantidade;
-	}
-	function getProdutoQuantidade() {
-		return $this->produtoQuantidade;
-	}
-
-	function setProdutoObservacao($produtoObservacao) {
-		$this->produtoObservacao = $produtoObservacao;
-	}
-	function getProdutoObservacao() {
-		return $this->produtoObservacao;
-	}
-
-	function setProdutoIcone($produtoIcone) {
-		$this->produtoIcone = $produtoIcone;
-	}
-	function getProdutoIcone() {
-		return $this->produtoIcone;
-	}
-
-	function setProdutoCategoria($produtoCategoria) {
-		$this->produtoCategoria = $produtoCategoria;
-	}
-	function getProdutoCategoria() {
-		return $this->produtoCategoria;
-	}
-
-	function insereProduto() {
+	function insereOferta() {
 		$con = [
-			'cod_promocao' => $this->getProdutoPromocaoCodigo(),
-			'descricao' => $this->getProdutoDescricao(),
-			'preco_unit' => $this->getProdutoPreco(),
-			'qtd_produto' => $this->getProdutoQuantidade(),
-			'observacao' => $this->getProdutoObservacao(),
-			'icone' => $this->getProdutoIcone(),
-			'categoria' => $this->getProdutoCategoria()
+			'src' => $this->getOfertaSrc(),
+			'descricao' => $this->getOfertaDescricao(),
 		];
 
 		return $con;       

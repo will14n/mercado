@@ -70,12 +70,6 @@ class Produto {
 			'categoria' => $this->getProdutoCategoria()
 		];
 
-		$connect = new \MongoDB\Driver\Manager("mongodb://admin:admin@ds023523.mlab.com:23523/mercado");
-        $bulk = new MongoDB\Driver\BulkWrite;
-        $doc = $this->con;
-        $bulk->insert($con);
-        $connect->executeBulkWrite($this->baseCons, $bulk);
-
 		return $con;       
 	}
 }

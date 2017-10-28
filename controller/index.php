@@ -4,6 +4,7 @@ ini_set('display_errors',1);
 error_reporting(E_ALL);
 // include_once '../classes/conecta.php'; #CLASSE DE CONEXAO LOCAL
 include '../classes/produto.php';
+include '../classes/oferta.php';
 include_once '../classes/conectaHeroku.php'; #CLASSE DE CONEXAO HEROKU
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
@@ -132,12 +133,15 @@ else if($_GET['page'] == 'login') {
 					'descricao' => $_POST['ofertaDescricao']
 				];
 
-				/*$oferta = new Oferta();
-				$oferta->set*/
+				$oferta = new Oferta();
+				$oferta->setSrc($_POST['ofertaCaminho']);
+				$oferta->setDescricao($_POST['ofertaDescricao']);
+				$oferta = $oferta->insere();
+
 
 				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
-				$cadastrar->setCon($con);
+				$cadastrar->setCon($oferta);
 				$cadastrar->setBaseCons('mercado.oferta');
 				$cadastrar->insere();
 
@@ -166,11 +170,11 @@ else if($_GET['page'] == 'login') {
 				$produto->setProdutoCategoria($categoria);
 				$produto = $produto->insereProduto();
 
-				/*$cadastrar = new Conectar();
+				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
 				$cadastrar->setCon($con);
 				$cadastrar->setBaseCons('mercado.promocao');
-				$cadastrar->insere();*/
+				$cadastrar->insere();
 
 				header('location: ./index.php?page=cadastrado&tipo=produto');
 				exit();
