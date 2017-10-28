@@ -233,6 +233,7 @@ else if($_GET['page'] == 'login') {
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
 
+						$tpl = new Template("../pages/dados.html");
 						$tpl->addFile("DADOS", "../pages/cadastrado.html");
 						$tpl->ENDERECO = $p->pessoaEndereco;
 						$tpl->EMAIL = $p->pessoaEmail;
