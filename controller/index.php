@@ -204,9 +204,9 @@ else if($_GET['page'] == 'login') {
 			$tpl->addFile("DADOS", "../pages/login.html");
 
 			$projecao = ['_id' => current($_SESSION['id'])];
-			print_r(current($_SESSION['id']);
+			print_r(current($_SESSION['id']));
 
-			/*$usuario = new Conectar();
+			$usuario = new Conectar();
 			$usuario->setServidor('localhost');
 			$usuario->setUserCon('root');
 			$usuario->setPwdCon('root');
@@ -230,7 +230,7 @@ else if($_GET['page'] == 'login') {
 			$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
 			$tpl->Paypal = $p->pessoaPaypal;
 			$tpl->LOGIN = $p->pessoaLogin;
-			*/
+			
 			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
 			}
