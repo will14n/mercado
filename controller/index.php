@@ -109,6 +109,41 @@ else if($_GET['page'] == 'login') {
 				header('location: ./index.php?page=login');
 				exit;
 			}
+			else if($_POST['pessoa']) {
+
+				$projecao = ['_id' => 0];
+
+				$teste = new Conectar();
+				$teste->setServidor('localhost');
+				$teste->setUserCon('root');
+				$teste->setPwdCon('root');
+				$teste->setBaseCon('admin');
+				$teste->setCon([NULL], $projecao);
+				$teste->setBaseCons('mercado.usuarios');
+
+				foreach ($teste->conecta() as $p) {
+					print_r($teste->conecta());exit;
+				}
+
+				$pessoa = new Pessoa();
+				$pessoa->setPessoaNome($_POST['pessoaNome']);
+				$pessoa->setPessoaCpf($_POST['pessoaCpf']);
+				$pessoa->setPessoaEndereco($_POST['pessoaEndereco']);
+				$pessoa->setPessoaTelefone($_POST['pessoaTelefone']);
+				$pessoa->setPessoaDataNascimento($_POST['pessoaDataNascimento']);
+				$pessoa->setPessoaPaypal($_POST['pessoaPaypal']);
+				$pessoa->setPessoaEmail($_POST['pessoaEmail']);
+				$pessoa = $pessoa->inserePessoa();
+
+				$cadastrar = new Conectar();
+				$cadastrar->setBaseCon('admin');
+				$cadastrar->setCon($filial);
+				$cadastrar->setBaseCons('mercado.usuarios');
+				$cadastrar->insere();
+
+				header('location: ./index.php?page=cadastrado&tipo=filial');
+				exit;
+			}
 			else if($_POST['filial']) {
 
 				$filial = new Filial();
