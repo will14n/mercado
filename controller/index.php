@@ -204,7 +204,6 @@ else if($_GET['page'] == 'login') {
 			$tpl->addFile("DADOS", "../pages/login.html");
 
 			$projecao = ['_id' => current($_SESSION['id'])];
-			print_r($projecao);exit;
 
 			$usuario = new Conectar();
 			$usuario->setServidor('localhost');
