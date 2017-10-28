@@ -233,7 +233,7 @@ else if($_GET['page'] == 'login') {
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
 
-
+						print_r($p);exit;
 						$tpl->addFile("DADOS", "../pages/login.html");
 
 						$tpl->ENDERECO = $p->pessoaEndereco;
