@@ -203,8 +203,8 @@ else if($_GET['page'] == 'login') {
 		else {
 			$tpl->addFile("DADOS", "../pages/login.html");
 
-			// $projecao = ['_id' => current($_SESSION['id'])];
-			// print_r(current($_SESSION['id']);
+			$projecao = ['_id' => current($_SESSION['id'])];
+			print_r(current($_SESSION['id']);
 
 			/*$usuario = new Conectar();
 			$usuario->setServidor('localhost');
