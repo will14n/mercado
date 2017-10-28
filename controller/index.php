@@ -122,7 +122,7 @@ else if($_GET['page'] == 'login') {
 				$teste->setBaseCons('mercado.usuarios');
 
 				foreach ($teste->conecta() as $p) {
-					print_r($teste->conecta());exit;
+					print_r($p);exit;
 				}
 
 				$pessoa = new Pessoa();
