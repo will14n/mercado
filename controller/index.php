@@ -8,6 +8,15 @@ include_once '../classes/conectaHeroku.php'; #CLASSE DE CONEXAO HEROKU
 require_once("../lib/raelgc/view/Template.php");
 use raelgc\view\Template;
 ?>
+<!-- <pre>
+<?php print_r($_POST);
+?>
+</pre>
+<pre>
+<?php
+print_r($_GET);	
+?>
+</pre> -->
 <?php
 include_once '../pages/header.html';
 include_once '../pages/headerLogo.html';
@@ -166,11 +175,11 @@ else if($_GET['page'] == 'login') {
 				$produto->setProdutoCategoria($categoria);
 				$produto = $produto->insereProduto();
 
-				/*$cadastrar = new Conectar();
+				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
 				$cadastrar->setCon($con);
 				$cadastrar->setBaseCons('mercado.promocao');
-				$cadastrar->insere();*/
+				$cadastrar->insere();
 
 				header('location: ./index.php?page=cadastrado&tipo=produto');
 				exit();
