@@ -204,7 +204,7 @@ else if($_GET['page'] == 'login') {
 			$tpl->addFile("DADOS", "../pages/login.html");
 
 			$projecao = ['_id' => current($_SESSION['id'])];
-			print_r(current($_SESSION['id']));
+			print_r($projecao);
 
 			$usuario = new Conectar();
 			$usuario->setServidor('localhost');
@@ -212,7 +212,7 @@ else if($_GET['page'] == 'login') {
 			$usuario->setPwdCon('root');
 			$usuario->setBaseCon('admin');
 			$usuario->setCon([NULL], $projecao);
-			$usuario->setBaseCons('mercado.filiais');
+			$usuario->setBaseCons('mercado.usuario');
 
 			foreach($usuario->conecta() as $p) {
 
