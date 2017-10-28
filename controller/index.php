@@ -3,6 +3,7 @@ session_start();
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 // include_once '../classes/conecta.php'; #CLASSE DE CONEXAO LOCAL
+include '../classes/pessoa.php';
 include '../classes/filial.php';
 include '../classes/produto.php';
 include '../classes/oferta.php';
@@ -111,20 +112,6 @@ else if($_GET['page'] == 'login') {
 			}
 			else if($_POST['pessoa']) {
 
-				$projecao = ['_id' => 0];
-
-				$teste = new Conectar();
-				$teste->setServidor('localhost');
-				$teste->setUserCon('root');
-				$teste->setPwdCon('root');
-				$teste->setBaseCon('admin');
-				$teste->setCon([NULL], $projecao);
-				$teste->setBaseCons('mercado.usuarios');
-
-				foreach ($teste->conecta() as $p) {
-					print_r($p);exit;
-				}
-
 				$pessoa = new Pessoa();
 				$pessoa->setPessoaNome($_POST['pessoaNome']);
 				$pessoa->setPessoaCpf($_POST['pessoaCpf']);
@@ -133,15 +120,17 @@ else if($_GET['page'] == 'login') {
 				$pessoa->setPessoaDataNascimento($_POST['pessoaDataNascimento']);
 				$pessoa->setPessoaPaypal($_POST['pessoaPaypal']);
 				$pessoa->setPessoaEmail($_POST['pessoaEmail']);
+				$pessoa->setPessoaLogin($_POST['pessoaLogin']);
+				$pessoa->setPessoaSenha($_POST['pessoaSenha']);
 				$pessoa = $pessoa->inserePessoa();
 
 				$cadastrar = new Conectar();
 				$cadastrar->setBaseCon('admin');
-				$cadastrar->setCon($filial);
+				$cadastrar->setCon($pessoa);
 				$cadastrar->setBaseCons('mercado.usuarios');
 				$cadastrar->insere();
 
-				header('location: ./index.php?page=cadastrado&tipo=filial');
+				header('location: ./index.php?page=cadastrado&tipo=pessoa');
 				exit;
 			}
 			else if($_POST['filial']) {
@@ -240,7 +229,7 @@ else if($_GET['page'] == 'login') {
 				foreach ($teste->conecta() as $p) {
 
 					if(md5($_POST['pwd']) === $p->senha) {
-						print_r($p);exit;
+
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
 						header('location: ./index.php?page=login');
@@ -384,6 +373,9 @@ else if($_GET['page'] == 'cadastrado'){
 
 	if($_GET['tipo'] == "filial") {
 		$tpl->block("BLOCK_CADASTRO_FILIAL");
+	}
+	else if($_GET['tipo'] == "pessoa") {
+		$tpl->block("BLOCK_CADASTRO_PESSOA");
 	}
 	else if($_GET['tipo'] == "oferta") {
 		$tpl->block("BLOCK_CADASTRO_OFERTA");
