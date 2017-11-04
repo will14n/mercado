@@ -70,6 +70,6 @@ class Produto {
 			'categoria' => $this->getProdutoCategoria()
 		];
 
-		return $con;       
+		return $con;
 	}
 }

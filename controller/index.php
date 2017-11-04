@@ -204,7 +204,7 @@ else if($_GET['page'] == 'login') {
 			$tpl->addFile("DADOS", "../pages/login.html");
 
 			$projecao = ['_id' => current($_SESSION['id'])];
-			print_r($projecao);
+
 			$usuario = new Conectar();
 			$usuario->setServidor('localhost');
 			$usuario->setUserCon('root');
@@ -215,15 +215,15 @@ else if($_GET['page'] == 'login') {
 
 			foreach($usuario->conecta() as $p) {
 
-				print_r($p);
+				$tpl->addFile("DADOS", "../pages/login.html");
+				$tpl->ENDERECO = $p->pessoaEndereco;
+				$tpl->EMAIL = $p->pessoaEmail;
+				$tpl->CPF = $p->pessoaCpf;
+				$tpl->TELEFONE = $p->pessoaTelefone;
+				$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
+				$tpl->Paypal = $p->pessoaPaypal;
+				$tpl->LOGIN = $p->pessoaLogin;
 		    }exit;
-			$tpl->ENDERECO = $p->pessoaEndereco;
-			$tpl->EMAIL = $p->pessoaEmail;
-			$tpl->CPF = $p->pessoaCpf;
-			$tpl->TELEFONE = $p->pessoaTelefone;
-			$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
-			$tpl->Paypal = $p->pessoaPaypal;
-			$tpl->LOGIN = $p->pessoaLogin;
 			
 			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
