@@ -287,21 +287,35 @@ else if($_GET['carrinho'] == 'true') {
 
 	$projecao = ['_id' => 0];
 
-	$oferta = new Conectar();
-	$oferta->setServidor('localhost');
-	$oferta->setUserCon('root');
-	$oferta->setPwdCon('root');
-	$oferta->setBaseCon('admin');
-	$oferta->setCon([NULL], $projecao);
-	$oferta->setBaseCons('mercado.oferta');
+	$promocao = new Conectar();
+	$promocao->setServidor('localhost');
+	$promocao->setUserCon('root');
+	$promocao->setPwdCon('root');
+	$promocao->setBaseCon('admin');
+	$promocao->setCon([NULL], $projecao);
+	$promocao->setBaseCons('mercado.promocao');
 
-	$tpl->addFile("DADOS", "../pages/".$_GET['page'].".html");
+	$tpl->addFile("DADOS", "../pages/promocao.html");
+	// $tpl->TITULO = "Promoção";
+	
+	foreach ($promocao->conecta() as $p) {
 
-	foreach ($oferta->conecta() as $p) {
+		if($p->categoria == 'promocao') {
 
-	    $tpl->CAMINHO = $p->src;
-	    $tpl->DESCRICAO = $p->descricao;
-	    $tpl->block("BLOCK_OFERTA");
+			if($p->preco_unit) {
+				$preco = $p->preco_unit;
+			}
+			else {
+				$preco = "sem preço";
+			}
+
+		    $tpl->DESCRICAO = $p->descricao;
+		    $tpl->PAGE = $_GET['page'];
+		    $tpl->PRECO = $p->preco_unit;
+		    $tpl->OBSERVACAO = $p->observacao;
+		    $tpl->ICONE = $p->icone;
+		    $tpl->block("BLOCK_PROMOCOES");
+		}
     }
 }
 else if($_GET['page'] == 'oferta') {
