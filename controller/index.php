@@ -295,7 +295,7 @@ else if($_GET['carrinho'] == 'true') {
 	$oferta->setCon([NULL], $projecao);
 	$oferta->setBaseCons('mercado.oferta');
 
-	$tpl->addFile("DADOS", "../pages/oferta.html");
+	$tpl->addFile("DADOS", "../pages/".$_GET['page'].".html");
 
 	foreach ($oferta->conecta() as $p) {
 
