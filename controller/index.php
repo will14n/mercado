@@ -203,7 +203,7 @@ else if($_GET['page'] == 'login') {
 		else {
 			$tpl->addFile("DADOS", "../pages/login.html");
 
-			$projecao = ['_id' => current($_SESSION['id'])];
+			$projecao = ['_id' => 0];
 
 			$usuario = new Conectar();
 			$usuario->setServidor('localhost');
@@ -215,15 +215,17 @@ else if($_GET['page'] == 'login') {
 
 			foreach($usuario->conecta() as $p) {
 
-				$tpl->addFile("DADOS", "../pages/login.html");
-				$tpl->ENDERECO = $p->pessoaEndereco;
-				$tpl->EMAIL = $p->pessoaEmail;
-				$tpl->CPF = $p->pessoaCpf;
-				$tpl->TELEFONE = $p->pessoaTelefone;
-				$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
-				$tpl->Paypal = $p->pessoaPaypal;
-				$tpl->LOGIN = $p->pessoaLogin;
-		    }exit;
+				if($_SESSION['usuario'] == $p->login) {
+
+					$tpl->ENDERECO = $p->pessoaEndereco;
+					$tpl->EMAIL = $p->pessoaEmail;
+					$tpl->CPF = $p->pessoaCpf;
+					$tpl->TELEFONE = $p->pessoaTelefone;
+					$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
+					$tpl->Paypal = $p->pessoaPaypal;
+					$tpl->LOGIN = $p->pessoaLogin;
+				}
+		    }
 			
 			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
@@ -255,7 +257,7 @@ else if($_GET['page'] == 'login') {
 
 						$_SESSION['autentica'] = "true";
 						$_SESSION['usuario'] = $_POST['usr'];
-						$_SESSION['login'] = $p->pessoaLogin;
+						$_SESSION['login'] = $p->login;
 						$_SESSION['id'] =$p->_id;
 
 						header('location: ./index.php?page=login');
@@ -271,6 +273,36 @@ else if($_GET['page'] == 'login') {
 			}
 		}
 	}
+}
+else if($_GET['carrinho'] == 'true') {
+
+	$_SESSION['carrinhoQuantidade'] = 0;
+
+	if($_GET['produto']) {
+
+		$codigo = $_SESSION['carrinhoQuantidade'] + 1;
+		$_SESSION[$codigo]['produto'] = $_GET['produto'];
+		$_SESSION[$codigo]['preco'] = $_GET['preco'];
+	}
+
+	$projecao = ['_id' => 0];
+
+	$oferta = new Conectar();
+	$oferta->setServidor('localhost');
+	$oferta->setUserCon('root');
+	$oferta->setPwdCon('root');
+	$oferta->setBaseCon('admin');
+	$oferta->setCon([NULL], $projecao);
+	$oferta->setBaseCons('mercado.oferta');
+
+	$tpl->addFile("DADOS", "../pages/oferta.html");
+
+	foreach ($oferta->conecta() as $p) {
+
+	    $tpl->CAMINHO = $p->src;
+	    $tpl->DESCRICAO = $p->descricao;
+	    $tpl->block("BLOCK_OFERTA");
+    }
 }
 else if($_GET['page'] == 'oferta') {
 
@@ -312,7 +344,16 @@ else if($_GET['page'] == 'promocao') {
 
 		if($p->categoria == 'promocao') {
 
+			if($p->preco_unit) {
+				$preco = $p->preco_unit;
+			}
+			else {
+				$preco = "sem preço";
+			}
+
 		    $tpl->DESCRICAO = $p->descricao;
+		    $tpl->PAGE = $_GET['page'];
+		    $tpl->PRECO = $p->preco_unit;
 		    $tpl->OBSERVACAO = $p->observacao;
 		    $tpl->ICONE = $p->icone;
 		    $tpl->block("BLOCK_PROMOCOES");
@@ -338,7 +379,8 @@ else if($_GET['page'] == 'atacado') {
 
 		if($p->categoria == 'atacado') {
 
-			// print_r($p);exit;
+			$tpl->PAGE = $_GET['page'];
+			$tpl->PRECO = $p->preco_unit;
 		    $tpl->DESCRICAO = $p->descricao;
 		    $tpl->OBSERVACAO = $p->observacao;
 		    $tpl->ICONE = $p->icone;
@@ -364,7 +406,9 @@ else if($_GET['page'] == 'varejo') {
 	foreach ($varejo->conecta() as $p) {
 
 		if($p->categoria == 'varejo') {
-			// print_r($p);exit;
+
+			$tpl->PAGE = $_GET['page'];
+			$tpl->PRECO = $p->preco_unit;
 		    $tpl->DESCRICAO = $p->descricao;
 		    $tpl->OBSERVACAO = $p->observacao;
 		    $tpl->ICONE = $p->icone;
@@ -426,7 +470,6 @@ else{
 
 	foreach ($destaque->conecta() as $p) {
 
-		// print_r($p);exit;
 	    $tpl->DESCRICAO = $p->descricao;
 	    $tpl->OBSERVACAO = $p->observacao;
 	    $tpl->ICONE = $p->icone;
