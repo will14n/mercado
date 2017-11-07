@@ -1,7 +1,7 @@
 <?php
 session_start();
-ini_set('display_errors',1);
-error_reporting(E_ALL);
+// ini_set('display_errors',1);
+// error_reporting(E_ALL);
 // include_once '../classes/conecta.php'; #CLASSE DE CONEXAO LOCAL
 include '../classes/pessoa.php';
 include '../classes/filial.php';
@@ -84,7 +84,6 @@ if($_GET['page'] == 'filiais') {
 	
 	foreach ($filiais->conecta() as $p) {
 
-		// print_r($p);exit;
 	    $tpl->NOME = $p->nome;
 	    $tpl->ENDERECO = $p->endereco;
 	    $tpl->OBSERVACAO = $p->observacao;
@@ -223,10 +222,23 @@ else if($_GET['page'] == 'login') {
 					$tpl->TELEFONE = $p->pessoaTelefone;
 					$tpl->DTNASCIMENTO = $p->pessoaDataNascimento;
 					$tpl->Paypal = $p->pessoaPaypal;
-					$tpl->LOGIN = $p->pessoaLogin;
+					$tpl->LOGIN = $p->login;
 				}
 		    }
 			
+			if($_SESSION['carrinhoQuantidade'] > 0) {
+				foreach($_SESSION['carrinho'] as $produto) {
+
+					$tpl->PRODUTO = $produto['produto'];
+					$tpl->VALOR = $produto['preco'];
+					$tpl->ICONE = $produto['icone'];
+					$tpl->block("BLOCK_ITEM_CARRINHO");
+				}
+				$tpl->TOTAL = $_SESSION['precoTotal'];
+					$tpl->block("BLOCK_CARRINHO");
+			}
+
+
 			if($_SESSION['usuario'] == 'admin') {
 				$tpl->block("BLOCK_CADASTRO");
 			}
@@ -241,48 +253,78 @@ else if($_GET['page'] == 'login') {
 			}
 			else {
 
-				$projecao = ['_id' => 0];
+				if($_POST['pessoa']) {
 
-				$teste = new Conectar();
-				$teste->setServidor('localhost');
-				$teste->setUserCon('root');
-				$teste->setPwdCon('root');
-				$teste->setBaseCon('admin');
-				$teste->setCon([NULL], $projecao);
-				$teste->setBaseCons('mercado.usuarios');
+					$pessoa = new Pessoa();
+					$pessoa->setPessoaNome($_POST['pessoaNome']);
+					$pessoa->setPessoaCpf($_POST['pessoaCpf']);
+					$pessoa->setPessoaEndereco($_POST['pessoaEndereco']);
+					$pessoa->setPessoaTelefone($_POST['pessoaTelefone']);
+					$pessoa->setPessoaDataNascimento($_POST['pessoaDataNascimento']);
+					$pessoa->setPessoaPaypal($_POST['pessoaPaypal']);
+					$pessoa->setPessoaEmail($_POST['pessoaEmail']);
+					$pessoa->setPessoaLogin($_POST['pessoaLogin']);
+					$pessoa->setPessoaSenha($_POST['pessoaSenha']);
+					$pessoa = $pessoa->inserePessoa();
 
-				foreach ($teste->conecta() as $p) {
+					$cadastrar = new Conectar();
+					$cadastrar->setBaseCon('admin');
+					$cadastrar->setCon($pessoa);
+					$cadastrar->setBaseCons('mercado.usuarios');
+					$cadastrar->insere();
 
-					if(md5($_POST['pwd']) === $p->senha) {
-
-						$_SESSION['autentica'] = "true";
-						$_SESSION['usuario'] = $_POST['usr'];
-						$_SESSION['login'] = $p->login;
-						$_SESSION['id'] =$p->_id;
-
-						header('location: ./index.php?page=login');
-						break;
-						exit();
-					}
-					else{
-						continue;
-					}
+					header('location: ./index.php?page=cadastrado&tipo=pessoa');
+					exit;
 				}
-				$tpl->addFile("DADOS", "../pages/cadastrado.html");
-				$tpl->block("BLOCK_LOGIN_INCORRETO");
+				else {
+
+					$projecao = ['_id' => 0];
+
+					$teste = new Conectar();
+					$teste->setServidor('localhost');
+					$teste->setUserCon('root');
+					$teste->setPwdCon('root');
+					$teste->setBaseCon('admin');
+					$teste->setCon([NULL], $projecao);
+					$teste->setBaseCons('mercado.usuarios');
+
+					foreach ($teste->conecta() as $p) {
+
+						if(md5($_POST['pwd']) === $p->senha) {
+
+							$_SESSION['autentica'] = "true";
+							$_SESSION['usuario'] = $_POST['usr'];
+							$_SESSION['login'] = $p->login;
+							$_SESSION['id'] =$p->_id;
+
+							header('location: ./index.php?page=login');
+							break;
+							exit();
+						}
+						else{
+							continue;
+						}
+					}
+					$tpl->addFile("DADOS", "../pages/cadastrado.html");
+					$tpl->block("BLOCK_LOGIN_INCORRETO");
+				}
 			}
 		}
 	}
 }
 else if($_GET['carrinho'] == 'true') {
 
-	$_SESSION['carrinhoQuantidade'] = 0;
+	if(!$_SESSION['carrinhoQuantidade']) {
+		$_SESSION['carrinhoQuantidade'] = 0;
+	}
 
 	if($_GET['produto']) {
-
 		$codigo = $_SESSION['carrinhoQuantidade'] + 1;
-		$_SESSION[$codigo]['produto'] = $_GET['produto'];
-		$_SESSION[$codigo]['preco'] = $_GET['preco'];
+		$_SESSION['carrinho'][$codigo]['produto'] = $_GET['produto'];
+		$_SESSION['carrinho'][$codigo]['preco'] = $_GET['preco'];
+		$_SESSION['carrinho'][$codigo]['icone'] = $_GET['icone'];
+		$_SESSION['precoTotal'] += $_GET['preco'];
+		$_SESSION['carrinhoQuantidade']++;		
 	}
 
 	$projecao = ['_id' => 0];
@@ -296,7 +338,7 @@ else if($_GET['carrinho'] == 'true') {
 	$promocao->setBaseCons('mercado.promocao');
 
 	$tpl->addFile("DADOS", "../pages/promocao.html");
-	// $tpl->TITULO = "Promoção";
+	$tpl->TITULO = "Promoção";
 	
 	foreach ($promocao->conecta() as $p) {
 

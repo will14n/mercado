@@ -2,12 +2,12 @@
 	<article class="col-md-12" style="height: 90px;"><h2>{TITULO}</h2></article>
 	<section class="row slideanim slide">
 		<!-- BEGIN BLOCK_PROMOCOES -->
-			<section class="col-md-4" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalEmpressora" style="cursor: pointer;">
+			<section class="col-md-4" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal{DESCRICAO}" style="cursor: pointer;">
 				<span class="glyphicon glyphicon-{ICONE} logo-small iconSize"></span>
 				<h4>{DESCRICAO}</h4>
 				<p>{OBSERVACAO}</p>
 			</section>
-			<section class="modal fade" id="modalEmpressora" role="dialog">
+			<section class="modal fade" id="modal{DESCRICAO}" role="dialog">
 				<section class="modal-dialog">
 					  <!-- Modal content-->
 					<section class="modal-content">
@@ -24,7 +24,7 @@
 							</section>
 						</section>
 						<section class="modal-footer">
-							<a href="../controller/index.php?page={PAGE}&carrinho=true&produto={DESCRICAO}&preco={PRECO}" class="btn btn-primary">
+							<a href="../controller/index.php?page={PAGE}&carrinho=true&produto={DESCRICAO}&preco={PRECO}&icone={ICONE}" class="btn btn-primary">
 								
 									Adicionar ao Carrinho
 								
