@@ -17,7 +17,7 @@ class ConectarTest extends PHPUnit\Framework\TestCase {
 		$conecta = new Conectar();
 		$conecta->setUserCon("UserCon");
 
-		$this->assertEquals("UserCon", $conecta->getUserCon());
+		$this->assertEquals("UserCon2", $conecta->getUserCon());
 	}
 
 	public function testePwdCon() {
